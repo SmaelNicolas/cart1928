@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  width: calc(100vw - (100vw - 100%)); }
+
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  text-align: center;
+  line-height: 100px;
+  font-size: xx-large; }
+
+.header__link {
+  color: yellow; }
+
+.main {
+  width: 100%;
+  padding-bottom: 100px; }
+  .main__titulo {
+    padding: 50px;
+    text-align: center; }
+  .main__productos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px; }
+    .main__productos__card {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 300px;
+      height: auto; }
