@@ -1,0 +1,17 @@
+.minitop{
+    width: 100%;
+    background-color: black;
+    text-align: end;
+    color: white;
+    font-size: 12px;
+    font-weight: 100;
+    padding-right: 20px;
+}
+
+
+@media only screen and (max-width: $tablet) and (min-width: $smartphone){
+   .minitop{
+    text-align: center;
+    padding-right: 0px;
+}
+}

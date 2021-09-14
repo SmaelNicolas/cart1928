@@ -1,0 +1,58 @@
+.main {
+  width: 100%;
+
+  padding-bottom: 100px;
+
+  &__titulo {
+    padding: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 70px;
+  }
+
+  &__productos {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1rem;
+
+    &__card {
+      display: flex;
+      flex-direction: column;
+
+      margin: 0 auto;
+
+      width: 300px;
+      height: auto;
+
+      &__image {
+        width: 280px;
+        height: 300px;
+
+        border: 2px solid black;
+
+        &__modal {
+          width: 90%;
+          max-height: 6500px;
+          margin: 0 auto;
+        }
+      }
+
+      &__title {
+        text-align: start;
+      }
+
+      &__precio {
+        text-align: start;
+      }
+
+      &__button {
+        width: 50%;
+        height: 25px;
+        margin: 0 auto;
+        cursor: pointer;
+      }
+    }
+  }
+}

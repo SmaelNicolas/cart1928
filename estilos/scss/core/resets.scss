@@ -1,10 +1,15 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: Biko;
+  text-align: center;
+  list-style-type: none;
+}
 
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-
-    width: calc(100vw - (100vw - 100%)); 
-
+body {
+  width: calc(100% - 0);
+  background-color: $bgcolor;
 }
