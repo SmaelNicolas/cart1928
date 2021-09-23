@@ -191,7 +191,6 @@ body {
     width: 100%;
     height: auto;
     padding: 100px 0;
-    background-color: lime;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem; }
@@ -210,9 +209,9 @@ body {
           max-height: 6500px;
           margin: 0 auto; }
       .main__productos__card__title {
-        text-align: start; }
+        text-align: center; }
       .main__productos__card__precio {
-        text-align: start; }
+        text-align: center; }
       .main__productos__card__button {
         width: 50%;
         height: 25px;

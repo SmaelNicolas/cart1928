@@ -16,8 +16,6 @@
 
     padding: 100px 0;
 
-    background-color: lime;
-
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem;
@@ -45,11 +43,11 @@
       }
 
       &__title {
-        text-align: start;
+        text-align: center;
       }
 
       &__precio {
-        text-align: start;
+        text-align: center;
       }
 
       &__button {
