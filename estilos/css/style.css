@@ -204,6 +204,8 @@ body {
         width: 280px;
         height: 300px;
         border: 2px solid black; }
+        .main__productos__card__image:hover {
+          cursor: zoom-in; }
         .main__productos__card__image__modal {
           width: 90%;
           max-height: 6500px;
