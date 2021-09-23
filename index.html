@@ -50,9 +50,6 @@
         <!-- Barra de navegacion  -->
         <ul class="header__ul">
 
-            <li class="header__ul__li">
-                <a class=" header__ul__li__a header__ul__li__a__text--color" href="#destacados">Inicio</a>
-            </li>
 
             <li class="header__ul__li">
                 <a class=" header__ul__li__a header__ul__li__a__text--color" href="./html/remeras.html">Remeras</a>
@@ -69,6 +66,10 @@
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color" href="./html/accesorios.html">Accesorios</a>
             </li>
+            <li class="header__ul__li">
+                <a class=" header__ul__li__a header__ul__li__a__text--color" href="#destacados"><i
+                        class="fas fa-shopping-cart header__ul__li__cart"></i></a>
+            </li>
 
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color" href="#footer">Contacto</a>
@@ -82,6 +83,7 @@
                 <a class="header__ul__responsive__li__a" href="#destacados"> <img
                         class="header__ul__responsive__li__a__img" src="https://i.ibb.co/jD1yyn9/iconinicio.png"
                         alt="Icono de inicio"></a>
+
             </li>
 
             <li class="header__ul__responsive__li">
@@ -122,133 +124,11 @@
 
         <h1 class="main__titulo">TIENDA ONLINE</h1>
 
-        <div class="main__productos" id="productos">
-
-            <!-- Button trigger modal -->
-            <div class="main__productos__card" id="item1">
-                <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter">
-
-                    <img class="main__productos__card__image" src="https://i.ibb.co/JjmP5YW/jeans2.jpg" alt="">
-                </button>
-                <p class="main__productos__card__title">Jean Negro - Talle 50</p>
-                <p class="main__productos__card__precio">$ 3.500</p>
-                <a class="btnComprar" type="button">Comprar</a>
-
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalCenterLongTitle">Jean Negro - Talle 50</h5>
-                        </div>
-                        <div class="modal-body">
-                            <img class="main__productos__card__image__modal" src="https://i.ibb.co/JjmP5YW/jeans2.jpg"
-                                alt="">
-                            <p class="main__productos__card__title">Jean negro , talle 50 estilo chupin. </p>
-                            <p class="main__productos__card__title">Elastizado </p>
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-                            <button type="button" class="btn btn-dark">COMPRAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Button trigger modal -->
-            <div class="main__productos__card" id="item2">
-                <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter2">
-
-                    <img class="main__productos__card__image" src="https://i.ibb.co/GC5rH37/16.jpg" alt="">
-                </button>
-                <p class="main__productos__card__title">Sweater Colores</p>
-                <p class="main__productos__card__precio">$ 2.460</p>
-
-                <a class="btnComprar" type="button">Comprar</a>
-
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modalCenter2" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalCenterLongTitle">Sweater Colores</h5>
-
-                        </div>
-                        <div class="modal-body">
-                            <img class="main__productos__card__image__modal" src="https://i.ibb.co/GC5rH37/16.jpg"
-                                alt="">
-                            <p class="main__productos__card__title">Sweater de hilo, varios colores. Talle unico </p>
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-                            <button type="button" class="btn btn-dark">COMPRAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="main__productos" id="catalogo">
 
 
 
-            <!-- Button trigger modal -->
-            <div class="main__productos__card" id="item3">
-                <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter3">
 
-                    <img class="main__productos__card__image" src="https://i.ibb.co/jGXzd23/2.jpg" alt="">
-                </button>
-                <p class="main__productos__card__title">Buzo negro XXL</p>
-                <p class="main__productos__card__precio">$ 3.450</p>
-                <a class="btnComprar" type="button">Comprar</a>
-
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="modalCenter3" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalCenterLongTitle">Buzo negro XXL</h5>
-
-                        </div>
-                        <div class="modal-body">
-                            <img class="main__productos__card__image__modal" src="https://i.ibb.co/jGXzd23/2.jpg"
-                                alt="">
-                            <p class="main__productos__card__title">Buzo negro, talle xxl , estampado </p>
-                            <p class="main__productos__card__title">Algodon </p>
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-                            <button type="button" class="btn btn-dark">COMPRAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="main__productos__card" id="producto2">
-                <img class="main__productos__card__image" src="./img/p.jpg" alt="">
-                <p class="main__productos__card__title">Titulo</p>
-                <p class="main__productos__card__precio">PRECIO</p>
-                <button class="main__productos__card__button">COMPRAR</button>
-            </div>
-
-            <div class="main__productos__card" id="producto3">
-                <img class="main__productos__card__image" src="./img/p.jpg" alt="">
-                <p class="main__productos__card__title">Titulo</p>
-                <p class="main__productos__card__precio">PRECIO</p>
-                <button class="main__productos__card__button">COMPRAR</button>
-            </div> -->
 
         </div>
 
@@ -326,6 +206,8 @@
 
     </footer>
     <!-- FIN  FOOTER  -->
+
+    <script src="./js/shop.js"></script>
 </body>
 
 </html>

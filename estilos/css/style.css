@@ -8,44 +8,6 @@
   font-family: BikoBold;
   src: url(/estilos/biko_font/Biko_Bold.otf); }
 
-.btnComprar {
-  cursor: pointer;
-  letter-spacing: 0.075em;
-  padding: 0.8em 1em;
-  margin: auto 2em;
-  position: relative;
-  align-self: center;
-  text-transform: uppercase;
-  z-index: 1;
-  box-shadow: -0.5em 0.5em rgba(16, 24, 50, 0);
-  margin-bottom: 0px;
-  border: 2px solid #101832;
-  color: #101832;
-  text-decoration: none; }
-  .btnComprar:before, .btnComprar:after {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -1;
-    background: #101832;
-    border: 3px solid #101832; }
-  .btnComprar:before {
-    left: -0.59em;
-    top: 0.15em;
-    width: 0.31em;
-    height: 100%;
-    transform: skewY(-45deg); }
-  .btnComprar:after {
-    bottom: -0.61em;
-    right: 0.16em;
-    width: 100%;
-    height: 0.31em;
-    transform: skewX(-45deg); }
-  .btnComprar:hover {
-    transition: 0.5s;
-    color: white;
-    background-color: rgba(128, 128, 128, 0.733); }
-
 * {
   margin: 0;
   padding: 0;
@@ -96,6 +58,9 @@ body {
     .header__ul__li {
       justify-content: center;
       margin-left: 72px; }
+      .header__ul__li__cart {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.856); }
       .header__ul__li__a {
         text-decoration: none; }
         .header__ul__li__a:hover {
@@ -224,6 +189,9 @@ body {
     font-size: 70px; }
   .main__productos {
     width: 100%;
+    height: auto;
+    padding: 100px 0;
+    background-color: lime;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem; }
@@ -249,7 +217,16 @@ body {
         width: 50%;
         height: 25px;
         margin: 0 auto;
-        cursor: pointer; }
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: black;
+        color: white;
+        text-decoration: none;
+        letter-spacing: 1px; }
+        .main__productos__card__button:hover {
+          transition: 0.5s;
+          background-color: white;
+          color: black; }
 
 .footer {
   display: flex;
