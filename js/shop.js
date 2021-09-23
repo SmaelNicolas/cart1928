@@ -21,7 +21,7 @@ const productos = [
     id: 4,
     nombre: "Remera",
     Talle: "XXL",
-    color: "gris",
+    color: "Gris",
     precio: 1450,
     descripcion: "Breve Descripcion del Producto",
   },
@@ -30,7 +30,7 @@ const productos = [
     nombre: "Jean",
     Talle: 50,
     color: "Claro",
-    precio: 1450,
+    precio: 2350,
     descripcion: "Breve Descripcion del Producto",
   },
   {
@@ -38,7 +38,7 @@ const productos = [
     nombre: "Jean",
     Talle: 54,
     color: "Claro",
-    precio: 1450,
+    precio: 2200,
     descripcion: "Breve Descripcion del Producto",
   },
   {
@@ -46,15 +46,15 @@ const productos = [
     nombre: "Jean",
     Talle: 52,
     color: "Oscuro",
-    precio: 1450,
+    precio: 2950,
     descripcion: "Breve Descripcion del Producto",
   },
   {
     id: 8,
     nombre: "Sweater",
     Talle: "L",
-    color: "gris",
-    precio: 1450,
+    color: "Gris",
+    precio: 1970,
     descripcion: "Breve Descripcion del Producto",
   },
   {
@@ -62,7 +62,7 @@ const productos = [
     nombre: "Sweater",
     Talle: "XXL",
     color: "Marron",
-    precio: 1450,
+    precio: 2020,
     descripcion: "Breve Descripcion del Producto",
   },
   {
@@ -70,7 +70,7 @@ const productos = [
     nombre: "Sweater",
     Talle: "XL",
     color: "Negro",
-    precio: 1450,
+    precio: 2430,
     descripcion: "Breve Descripcion del Producto",
   },
   {
@@ -78,7 +78,7 @@ const productos = [
     nombre: "Accesorio",
     Talle: "",
     color: "",
-    precio: 1450,
+    precio: 2940,
     descripcion: "Breve Descripcion del Producto",
   },
   {
@@ -86,7 +86,7 @@ const productos = [
     nombre: "Accesorio",
     Talle: "",
     color: "",
-    precio: 1450,
+    precio: 850,
     descripcion: "Breve Descripcion del Producto",
   },
   {
@@ -94,7 +94,7 @@ const productos = [
     nombre: "Accesorio",
     Talle: "",
     color: "",
-    precio: 1450,
+    precio: 550,
     descripcion: "Breve Descripcion del Producto",
   },
 ];
