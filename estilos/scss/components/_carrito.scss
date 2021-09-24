@@ -1,0 +1,52 @@
+.carrito {
+  width: 45px;
+  height: 65px;
+  background-color: #1e221cb3;
+  position: fixed;
+  top: 32%;
+  z-index: 100;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px 0 0 15px;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &__itemstotal {
+    width: 15px;
+    height: 27px;
+    color: white;
+    font-size: 25px;
+    font-weight: 100;
+  }
+
+  &__icon {
+    font-size: 25px;
+    color: white;
+    font-weight: 100;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &:hover {
+    width: 75px;
+    transition: 0.5s;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .socials {
+    width: 205px;
+    height: 45px;
+    top: 0%;
+    left: 0%;
+    border-radius: 0 0 15px 0;
+
+    display: flex;
+    flex-direction: row;
+  }
+}
