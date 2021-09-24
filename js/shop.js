@@ -1,112 +1,128 @@
-let catalogo = document.getElementById("catalogo");
+//CLASES
 
-const productos = [
-  {
-    id: 1,
-    nombre: "Remera",
-    Talle: "XLL",
-    color: "Negro",
-    precio: "1750",
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 2,
-    nombre: "Remera",
-    Talle: "XL",
-    color: "Blanco",
-    precio: 950,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 4,
-    nombre: "Remera",
-    Talle: "XXL",
-    color: "Gris",
-    precio: 1450,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 5,
-    nombre: "Jean",
-    Talle: 50,
-    color: "Claro",
-    precio: 2350,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 6,
-    nombre: "Jean",
-    Talle: 54,
-    color: "Claro",
-    precio: 2200,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 7,
-    nombre: "Jean",
-    Talle: 52,
-    color: "Oscuro",
-    precio: 2950,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 8,
-    nombre: "Sweater",
-    Talle: "L",
-    color: "Gris",
-    precio: 1970,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 9,
-    nombre: "Sweater",
-    Talle: "XXL",
-    color: "Marron",
-    precio: 2020,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 10,
-    nombre: "Sweater",
-    Talle: "XL",
-    color: "Negro",
-    precio: 2430,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 11,
-    nombre: "Accesorio",
-    Talle: "",
-    color: "",
-    precio: 2940,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 12,
-    nombre: "Accesorio",
-    Talle: "",
-    color: "",
-    precio: 850,
-    descripcion: "Breve Descripcion del Producto",
-  },
-  {
-    id: 13,
-    nombre: "Accesorio",
-    Talle: "",
-    color: "",
-    precio: 550,
-    descripcion: "Breve Descripcion del Producto",
-  },
-];
+class Producto {
+  constructor(nombre, talle, modelo, color, precio, imagen) {
+    this.id = id;
+    this.nombre = nombre;
+    this.talle = talle;
+    this.modelo = modelo;
+    this.color = color;
+    this.precio = precio;
+    this.imagen = imagen;
+    this.info = `${nombre} Talle ${talle} , ${modelo}, Color ${color}.`;
+  }
+}
 
-for (const item of productos) {
-  let producto = `  <!-- Button trigger modal -->
+class Accesorio {
+  constructor(nombre, material, modelo, precio, imagen) {
+    this.id = id;
+    this.nombre = nombre;
+    this.materia = material;
+    this.modelo = modelo;
+    this.precio = precio;
+    this.imagen = imagen;
+    this.info = `${nombre} de ${material}, Modelo: ${modelo}.`;
+  }
+}
+
+//DECLARACIONES
+
+let tienda = document.getElementById("tienda");
+let id = 0;
+let catalogo = [];
+let carrito = [];
+
+const crearProducto = (nombre, talle, modelo, color, precio, imagen) => {
+  catalogo.push(new Producto(nombre, talle, modelo, color, precio, imagen));
+  id += 1;
+};
+
+const crearAccesorio = (tipo, material, modelo, precio, imagen) => {
+  catalogo.push(new Accesorio(tipo, material, modelo, precio, imagen));
+  id += 1;
+};
+
+const agregarCarrito = (nombreProducto) => {
+  let producto = catalogo.find((producto) => producto.id == nombreProducto);
+  carrito.push(producto);
+};
+
+//INVOCACIONES
+crearProducto(
+  "Remera",
+  "XXL",
+  "Manga corta estampada",
+  "Azul",
+  1240,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+crearProducto(
+  "Jean",
+  "50",
+  "Chupin",
+  "Claro",
+  3600,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+crearProducto(
+  "Sweater",
+  "XL",
+  "De Hilo",
+  "Negro",
+  2700,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+
+crearAccesorio(
+  "Anillo",
+  "Oro",
+  "Grabado",
+  4300,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+crearAccesorio(
+  "Collar",
+  "Acero Q",
+  "Con Medalla",
+  1250,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+crearAccesorio(
+  "Pulsera",
+  "Plata",
+  "Con Inicial",
+  1500,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+
+agregarCarrito(catalogo[0].id);
+agregarCarrito(catalogo[2].id);
+agregarCarrito(catalogo[4].id);
+
+//MUESTRA POR CONSOLA LOS PRODUCTOS QUE HAY EN CATALOGO
+console.log("EN CATALOGO");
+
+for (let i = 0; i < catalogo.length; i++) {
+  console.log(catalogo[i].info);
+}
+
+//MUESTRA POR CONSOLA LOS ITEMS DEL CARRITO
+console.log("EN CARRITO");
+
+for (let i = 0; i < carrito.length; i++) {
+  console.log(carrito[i].info);
+}
+
+// console.log(accesorio1.info);
+
+for (const item of catalogo) {
+  let productoCompleto = `  <!-- Button trigger modal -->
             <div class="main__productos__card" id="item1">
                 <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter">
 
-                    <img class="main__productos__card__image" src="https://i.ibb.co/h8n8x59/p.jpg" alt="">
+                    <img class="main__productos__card__image" src="${item.imagen}" alt="">
                 </button>
-                <p class="main__productos__card__title">${item.nombre} - ${item.color} - ${item.Talle}</p>
+                <p class="main__productos__card__title">${item.nombre} ${item.modelo}</p>
                 <p class="main__productos__card__precio">$ ${item.precio}</p>
                 <a class="main__productos__card__button" type="button">Comprar</a>
 
@@ -118,13 +134,13 @@ for (const item of productos) {
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalCenterLongTitle">${item.nombre} - ${item.color} - ${item.Talle}
+                            <h5 class="modal-title" id="modalCenterLongTitle">${item.nombre} ${item.modelo}
                             </h5>
                         </div>
                         <div class="modal-body">
                             <img class="main__productos__card__image__modal" src="https://i.ibb.co/h8n8x59/p.jpg"
                                 alt="">
-                            <p class="main__productos__card__title">${item.descripcion} </p>
+                            <p class="main__productos__card__title">${item.info} </p>
                             <p class="main__productos__card__precio">$ ${item.precio}</p>
 
 
@@ -139,6 +155,6 @@ for (const item of productos) {
 `;
 
   let contenedorProducto = document.createElement("div");
-  contenedorProducto.innerHTML = producto;
-  catalogo.appendChild(contenedorProducto);
+  contenedorProducto.innerHTML = productoCompleto;
+  tienda.appendChild(contenedorProducto);
 }
