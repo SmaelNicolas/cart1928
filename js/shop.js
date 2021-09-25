@@ -47,7 +47,7 @@ const agregarCarrito = (nombreProducto) => {
   carrito.push(producto);
 };
 
-//INVOCACIONES
+//LLAMADA A FUNCIONES
 crearProducto(
   "Remera",
   "XXL",
