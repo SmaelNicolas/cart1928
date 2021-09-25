@@ -1,5 +1,4 @@
 //CLASES
-
 class Producto {
   constructor(nombre, talle, modelo, color, precio, imagen) {
     this.id = id;
@@ -17,7 +16,7 @@ class Accesorio {
   constructor(nombre, material, modelo, precio, imagen) {
     this.id = id;
     this.nombre = nombre;
-    this.materia = material;
+    this.material = material;
     this.modelo = modelo;
     this.precio = precio;
     this.imagen = imagen;
@@ -28,7 +27,12 @@ class Accesorio {
 //DECLARACIONES
 
 let tienda = document.getElementById("tienda");
+let etiquetaCantidadEnCarrito = document.getElementById("itemsencarrito");
+let modalCarritoLista = document.getElementById("listaDelCarrito");
+
 let id = 0;
+
+let cantItemsEnCarrito = 0;
 let catalogo = [];
 let carrito = [];
 
@@ -42,9 +46,25 @@ const crearAccesorio = (tipo, material, modelo, precio, imagen) => {
   id += 1;
 };
 
-const agregarCarrito = (nombreProducto) => {
-  let producto = catalogo.find((producto) => producto.id == nombreProducto);
+const agregarCarrito = (idProducto) => {
+  let producto = catalogo.find((producto) => producto.id == idProducto);
   carrito.push(producto);
+  cantItemsEnCarrito += 1;
+  etiquetaCantidadEnCarrito.innerHTML = cantItemsEnCarrito;
+};
+
+const finalizarCompra = (total) => {
+  alert(`El pago por $${total} fue aceptado. Gracias por su Compra`);
+  vaciarCarrito();
+};
+
+const vaciarCarrito = () => {
+  cantItemsEnCarrito = 0;
+  carrito = [];
+  etiquetaCantidadEnCarrito.innerHTML = cantItemsEnCarrito;
+  while (modalCarritoLista.firstChild) {
+    modalCarritoLista.removeChild(modalCarritoLista.firstChild);
+  }
 };
 
 //LLAMADA A FUNCIONES
@@ -54,6 +74,22 @@ crearProducto(
   "Manga corta estampada",
   "Azul",
   1240,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+crearProducto(
+  "Jean",
+  "50",
+  "Chupin",
+  "Claro",
+  3600,
+  "https://i.ibb.co/h8n8x59/p.jpg"
+);
+crearProducto(
+  "Sweater",
+  "XL",
+  "De Hilo",
+  "Negro",
+  2700,
   "https://i.ibb.co/h8n8x59/p.jpg"
 );
 crearProducto(
@@ -95,41 +131,21 @@ crearAccesorio(
   "https://i.ibb.co/h8n8x59/p.jpg"
 );
 
-agregarCarrito(catalogo[0].id);
-agregarCarrito(catalogo[2].id);
-agregarCarrito(catalogo[4].id);
-
-//MUESTRA POR CONSOLA LOS PRODUCTOS QUE HAY EN CATALOGO
-console.log("EN CATALOGO");
-
-for (let i = 0; i < catalogo.length; i++) {
-  console.log(catalogo[i].info);
-}
-
-//MUESTRA POR CONSOLA LOS ITEMS DEL CARRITO
-console.log("EN CARRITO");
-
-for (let i = 0; i < carrito.length; i++) {
-  console.log(carrito[i].info);
-}
-
-// console.log(accesorio1.info);
-
 for (const item of catalogo) {
   let productoCompleto = `  <!-- Button trigger modal -->
-            <div class="main__productos__card" id="item1">
-                <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter">
+            <div class="main__productos__card" id="${item.id}">
+                <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter${item.id}">
 
                     <img class="main__productos__card__image" src="${item.imagen}" alt="">
                 </button>
                 <p class="main__productos__card__title">${item.nombre} ${item.modelo}</p>
                 <p class="main__productos__card__precio">$ ${item.precio}</p>
-                <a class="main__productos__card__button" type="button">Comprar</a>
+                <button class="main__productos__card__button" type="button" id="botonComprar${item.id}">Comprar</button>
 
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
+            <div class="modal fade" id="modalCenter${item.id}" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -147,7 +163,7 @@ for (const item of catalogo) {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-                            <button type="button" class="btn btn-dark">COMPRAR</button>
+                            <button type="button" class="btn btn-dark" id="botonComprarModal${item.id}">COMPRAR</button>
                         </div>
                     </div>
                 </div>
@@ -158,3 +174,46 @@ for (const item of catalogo) {
   contenedorProducto.innerHTML = productoCompleto;
   tienda.appendChild(contenedorProducto);
 }
+
+//BOTONES
+for (let i = 0; i < id; i++) {
+  let botonComprar = document.getElementById(`botonComprar${i}`);
+  let botonComprarModal = document.getElementById(`botonComprarModal${i}`);
+
+  botonComprar.onclick = () => {
+    console.log(`CLICK COMPRAR DESDE HTML ARTICULO ${i}`);
+    agregarCarrito(i);
+  };
+  botonComprarModal.onclick = () => {
+    console.log(`CLICK COMPRAR DESDE MODAL ARTICULO ${i}`);
+    agregarCarrito(i);
+  };
+}
+
+let botonIconCarrito = document.getElementById("iconoCarrito");
+botonIconCarrito.onclick = () => {
+  console.log("CLICK CARRITO");
+  for (let i = 0; i < carrito.length; i++) {
+    console.log(carrito[i].info);
+    let contenedorEnCarrito = document.createElement("p");
+    contenedorEnCarrito.innerHTML = carrito[i].info;
+    modalCarritoLista.appendChild(contenedorEnCarrito);
+  }
+};
+
+let botonFinalizarCompra = document.getElementById("finalizarCompra");
+botonFinalizarCompra.onclick = () => {
+  console.log("Gracias x Comprar");
+  let total = 0;
+  for (let i = 0; i < carrito.length; i++) {
+    console.log(carrito[i].info);
+    total += carrito[i].precio;
+  }
+  finalizarCompra(total);
+};
+
+let botonVaciarCarrito = document.getElementById("vaciarCarrito");
+botonVaciarCarrito.onclick = () => {
+  vaciarCarrito();
+  console.log("Carrito Vacio");
+};
