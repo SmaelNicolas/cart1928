@@ -9,7 +9,7 @@ class Producto {
     this.color = color;
     this.precio = precio;
     this.imagen = imagen;
-    this.info = `${nombre} Talle ${talle} , ${modelo}, Color ${color}.`;
+    this.info = `${this.nombre} Talle ${this.talle} , ${this.modelo}, Color ${this.color}.`;
   }
 }
 
@@ -21,7 +21,7 @@ class Accesorio {
     this.modelo = modelo;
     this.precio = precio;
     this.imagen = imagen;
-    this.info = `${nombre} de ${material}, Modelo: ${modelo}.`;
+    this.info = `${this.nombre} de ${this.material}, Modelo: ${this.modelo}.`;
   }
 }
 
