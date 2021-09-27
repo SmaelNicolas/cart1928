@@ -39,6 +39,75 @@
   }
 }
 
+.itemModal {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  height: auto;
+
+  justify-content: space-between;
+
+  border-bottom: 2px solid rgba(0, 0, 0, 0.774);
+  margin-bottom: 10px;
+
+  &__imagen {
+    width: 90px;
+    height: 90px;
+
+    align-items: flex-start;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+
+    &__titulo {
+      text-align: start;
+    }
+
+    &__cantidad {
+      display: flex;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    &__precio {
+      display: flex;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+  }
+  &__eliminar {
+    width: 15px;
+    border: none;
+    align-self: flex-end;
+    padding-right: 20px;
+  }
+}
+
+.modal__total {
+  width: 100%;
+  height: auto;
+  margin: 15px 15px 0px 0px;
+  text-align: end;
+  font-size: 20px;
+  &__valor {
+    padding-left: 2px;
+    font-weight: bold;
+    color: blue;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .socials {
     width: 205px;

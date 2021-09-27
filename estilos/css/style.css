@@ -66,6 +66,58 @@ body {
     width: 75px;
     transition: 0.5s; }
 
+.itemModal {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.774);
+  margin-bottom: 10px; }
+  .itemModal__imagen {
+    width: 90px;
+    height: 90px;
+    align-items: flex-start; }
+  .itemModal__info {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto; }
+    .itemModal__info__titulo {
+      text-align: start; }
+    .itemModal__info__cantidad {
+      display: flex;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-bottom: 10px; }
+    .itemModal__info__precio {
+      display: flex;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-bottom: 10px; }
+  .itemModal__eliminar {
+    width: 15px;
+    border: none;
+    align-self: flex-end;
+    padding-right: 20px; }
+
+.modal__total {
+  width: 100%;
+  height: auto;
+  margin: 15px 15px 0px 0px;
+  text-align: end;
+  font-size: 20px; }
+  .modal__total__valor {
+    padding-left: 2px;
+    font-weight: bold;
+    color: blue; }
+
 @media only screen and (max-width: 500px) {
   .socials {
     width: 205px;
@@ -262,8 +314,7 @@ body {
         border: 1px solid black;
         background-color: black;
         color: white;
-        text-decoration: none;
-        letter-spacing: 1px; }
+        text-decoration: none; }
         .main__productos__card__button:hover {
           transition: 0.5s;
           background-color: white;
