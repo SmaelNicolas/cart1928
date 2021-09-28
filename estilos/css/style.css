@@ -74,6 +74,10 @@ body {
   justify-content: space-between;
   border-bottom: 2px solid rgba(0, 0, 0, 0.774);
   margin-bottom: 10px; }
+  .itemModal:hover {
+    box-shadow: -2px 0px 10px 5px rgba(12, 12, 12, 0.582);
+    transition: 0.3s;
+    cursor: default; }
   .itemModal__imagen {
     width: 90px;
     height: 90px;
@@ -125,6 +129,8 @@ body {
     padding-left: 2px;
     font-weight: bold;
     color: blue; }
+  .modal__total:hover {
+    cursor: default; }
 
 @media only screen and (max-width: 500px) {
   .socials {

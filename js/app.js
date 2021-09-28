@@ -32,7 +32,7 @@ class Accesorio {
     this.precio = precio;
     this.imagen = imagen;
     this.cantidad = 1;
-    this.info = `${this.nombre} de ${this.material}, Modelo: ${this.modelo}.`;
+    this.info = `${this.nombre} de ${this.material} ${this.modelo}.`;
   }
 }
 
@@ -234,12 +234,11 @@ const crearModalCarrito = () => {
 
     clickBorrarItem(item);
     clickFinalizarCompra(precioTotal);
-
-    let contenedorPrecioTotal = document.createElement("div");
-    contenedorPrecioTotal.classList.add("modal__total");
-    contenedorPrecioTotal.innerHTML = `Total : $<span class="modal__total__valor" id="valorTotal">${precioTotal}</span>`;
-    modalCarritoLista.appendChild(contenedorPrecioTotal);
   }
+  let contenedorPrecioTotal = document.createElement("div");
+  contenedorPrecioTotal.classList.add("modal__total");
+  contenedorPrecioTotal.innerHTML = `Total : $<span class="modal__total__valor" id="valorTotal">${precioTotal}</span>`;
+  modalCarritoLista.appendChild(contenedorPrecioTotal);
 };
 
 const clickBorrarItem = (item) => {
@@ -268,7 +267,7 @@ const clickFinalizarCompra = (precioTotal) => {
       alert(`El pago por $${precioTotal} fue aceptado. Gracias por su Compra`);
       vaciarCarrito();
     } else {
-      alert("Agregue un producto");
+      alert("No hay productos a comprar");
     }
   };
 };
@@ -276,7 +275,11 @@ const clickFinalizarCompra = (precioTotal) => {
 const clickVaciarCarrito = () => {
   let botonVaciarCarrito = document.getElementById("vaciarCarrito");
   botonVaciarCarrito.onclick = () => {
-    vaciarCarrito();
+    if (carrito.length != 0) {
+      vaciarCarrito();
+    } else {
+      alert("No hay productos en carrito");
+    }
   };
 };
 
