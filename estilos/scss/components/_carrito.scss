@@ -64,7 +64,10 @@
     margin: 0 auto;
 
     &__titulo {
+      width: 100%;
       text-align: start;
+      font-weight: bolder;
+      margin-left: -10px;
     }
 
     &__cantidad {
@@ -92,6 +95,7 @@
     border: none;
     align-self: flex-end;
     padding-right: 20px;
+    background-color: lime;
   }
 }
 
