@@ -210,13 +210,13 @@ const crearModalCarrito = () => {
                             <h5 class="itemModal__info__titulo">${
                               item.info
                             }</h5>
-                            <div class="itemModal__info__cantidad">
+                            <div class="itemModal__info__cantidad" id="infoCantidad">
                                 <div>Cantidad</div>
                                 <div id="cantidadEnCarrito${item.id}">${
       item.cantidad
     }</div>
                             </div>
-                            <div class="itemModal__info__precio">
+                            <div class="itemModal__info__precio" id="infoPrecio">
                                 <div>Precio</div>
                                 <div>$${item.precio * item.cantidad}</div>
                             </div>
@@ -231,33 +231,45 @@ const crearModalCarrito = () => {
     modalCarritoLista.appendChild(contenedorListaModal);
 
     precioTotal += item.precio * item.cantidad;
-  }
 
-  let contenedorPrecioTotal = document.createElement("div");
-  contenedorPrecioTotal.classList.add("modal__total");
-  contenedorPrecioTotal.innerHTML = `Total : $<span class="modal__total__valor" id="valorTotal">${precioTotal}</span>`;
-  modalCarritoLista.appendChild(contenedorPrecioTotal);
+    clickBorrarItem(item);
+
+    let contenedorPrecioTotal = document.createElement("div");
+    contenedorPrecioTotal.classList.add("modal__total");
+    contenedorPrecioTotal.innerHTML = `Total : $<span class="modal__total__valor" id="valorTotal">${precioTotal}</span>`;
+    modalCarritoLista.appendChild(contenedorPrecioTotal);
+  }
 };
 
-const clickBorrarItem = () => {
-  for (let i = 0; i < carrito.length; i++) {
-    let idBuscar = carrito[i].id;
-    console.log("idBuscar");
-    let botonEliminar = document.getElementById(`botonEliminar${idBuscar}`);
-    console.log("ELIMINADO");
-
-    botonEliminar.onclick = () => {
-      console.log("ELIMINADO");
-    };
-  }
+const clickBorrarItem = (item) => {
+  let botonEliminar = document.getElementById(`botonEliminar${item.id}`);
+  botonEliminar.onclick = () => {
+    if (item.cantidad > 1) {
+      item.cantidad -= 1;
+      cantItemsEnCarrito -= 1;
+      limpiarListaModal();
+      crearModalCarrito();
+    } else {
+      if ((item.cantidad = 1)) {
+        carrito = carrito.filter((prodE) => prodE.id != item.id);
+        cantItemsEnCarrito -= 1;
+        limpiarListaModal();
+        crearModalCarrito();
+      }
+    }
+  };
 };
 
 const clickFinalizarCompra = () => {
   let botonFinalizarCompra = document.getElementById("finalizarCompra");
   botonFinalizarCompra.onclick = () => {
-    let total = document.getElementById("valorTotal").textContent;
-    alert(`El pago por $${total} fue aceptado. Gracias por su Compra`);
-    vaciarCarrito();
+    if (carrito.length != 0) {
+      let total = document.getElementById("valorTotal").textContent;
+      alert(`El pago por $${total} fue aceptado. Gracias por su Compra`);
+      vaciarCarrito();
+    } else {
+      alert("Agregue un producto");
+    }
   };
 };
 
@@ -282,6 +294,7 @@ const limpiarListaModal = () => {
   while (modalCarritoLista.firstChild) {
     modalCarritoLista.removeChild(modalCarritoLista.firstChild);
   }
+  etiquetaCantidadEnCarrito.innerHTML = cantItemsEnCarrito;
 };
 
 const app = () => {
@@ -291,7 +304,6 @@ const app = () => {
   clickIconoCarrito();
   clickVaciarCarrito();
   clickFinalizarCompra();
-  clickBorrarItem();
 };
 
 app();
