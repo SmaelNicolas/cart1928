@@ -233,6 +233,7 @@ const crearModalCarrito = () => {
     precioTotal += item.precio * item.cantidad;
 
     clickBorrarItem(item);
+    clickFinalizarCompra(precioTotal);
 
     let contenedorPrecioTotal = document.createElement("div");
     contenedorPrecioTotal.classList.add("modal__total");
@@ -260,12 +261,11 @@ const clickBorrarItem = (item) => {
   };
 };
 
-const clickFinalizarCompra = () => {
+const clickFinalizarCompra = (precioTotal) => {
   let botonFinalizarCompra = document.getElementById("finalizarCompra");
   botonFinalizarCompra.onclick = () => {
     if (carrito.length != 0) {
-      let total = document.getElementById("valorTotal").textContent;
-      alert(`El pago por $${total} fue aceptado. Gracias por su Compra`);
+      alert(`El pago por $${precioTotal} fue aceptado. Gracias por su Compra`);
       vaciarCarrito();
     } else {
       alert("Agregue un producto");
@@ -303,7 +303,6 @@ const app = () => {
   clickAgregarCarrito();
   clickIconoCarrito();
   clickVaciarCarrito();
-  clickFinalizarCompra();
 };
 
 app();

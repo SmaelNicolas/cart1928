@@ -108,8 +108,12 @@ body {
     width: 15px;
     border: none;
     align-self: flex-end;
-    padding-right: 20px;
-    background-color: lime; }
+    padding-right: 20px; }
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
 
 .modal__total {
   width: 100%;

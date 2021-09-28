@@ -95,8 +95,13 @@
     border: none;
     align-self: flex-end;
     padding-right: 20px;
-    background-color: lime;
   }
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .modal__total {
