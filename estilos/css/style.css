@@ -44,7 +44,7 @@ body {
   width: 200px;
   height: 40px;
   position: fixed;
-  background-color: rgba(0, 255, 13, 0.568);
+  background-color: rgba(190, 153, 176, 0.671);
   z-index: 100000;
   top: 5%;
   text-align: center;
@@ -127,7 +127,6 @@ body {
     .itemModal__info__titulo {
       width: 100%;
       text-align: start;
-      font-weight: bolder;
       margin-left: -10px; }
     .itemModal__info__cantidad {
       display: flex;
@@ -150,7 +149,7 @@ body {
     border: none;
     align-self: flex-end;
     padding-right: 20px;
-    color: red; }
+    color: rgba(190, 153, 176, 0.932); }
 
 .modal-header {
   display: flex;
@@ -166,9 +165,12 @@ body {
   .modal__total__valor {
     padding-left: 2px;
     font-weight: bold;
-    color: blue; }
+    color: black; }
   .modal__total:hover {
     cursor: default; }
+
+.btn-rosa {
+  background-color: rgba(190, 153, 176, 0.671); }
 
 @media only screen and (max-width: 500px) {
   .socials {

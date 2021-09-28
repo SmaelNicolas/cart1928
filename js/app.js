@@ -19,7 +19,7 @@ class Producto {
     this.precio = precio;
     this.imagen = imagen;
     this.cantidad = 1;
-    this.info = `${this.nombre} ${this.talle} ${this.modelo} color ${this.color}.`;
+    this.info = `${this.nombre} ${this.talle} ${this.modelo} ${this.color}.`;
   }
 }
 
@@ -50,10 +50,10 @@ const crearAccesorio = (tipo, material, modelo, precio, imagen) => {
 
 const inicializarProductos = () => {
   crearProducto(
-    "Remera",
+    "REMERA",
     "XXL",
-    "Manga corta estampada",
-    "Azul",
+    "MANGA CORTA ESTAMPADA",
+    "AZUL",
     1240,
     "https://i.ibb.co/h8n8x59/p.jpg"
   );

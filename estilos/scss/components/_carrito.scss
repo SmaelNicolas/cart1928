@@ -72,7 +72,6 @@
     &__titulo {
       width: 100%;
       text-align: start;
-      font-weight: bolder;
       margin-left: -10px;
     }
 
@@ -101,7 +100,7 @@
     border: none;
     align-self: flex-end;
     padding-right: 20px;
-    color: red;
+    color: rgba(190, 153, 176, 0.932);
   }
 }
 
@@ -120,12 +119,16 @@
   &__valor {
     padding-left: 2px;
     font-weight: bold;
-    color: blue;
+    color: black;
   }
 
   &:hover {
     cursor: default;
   }
+}
+
+.btn-rosa {
+  background-color: rgba(190, 153, 176, 0.671);
 }
 
 @media only screen and (max-width: 500px) {
