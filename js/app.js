@@ -166,9 +166,11 @@ const clickAgregarCarrito = () => {
 
     botonComprar.onclick = () => {
       estaEnCarrito(i);
+      mensajeAgregado();
     };
     botonComprarModal.onclick = () => {
       estaEnCarrito(i);
+      mensajeAgregado();
     };
   }
 };
@@ -197,6 +199,15 @@ const clickIconoCarrito = () => {
     limpiarListaModal();
     crearModalCarrito();
   };
+};
+
+const mensajeAgregado = () => {
+  let contenedorMensaje = document.createElement("div");
+  contenedorMensaje.classList.add("confirmacion");
+  contenedorMensaje.innerHTML = "Agregado al carrito";
+  document
+    .getElementById("contenedorMensajeAgregado")
+    .appendChild(contenedorMensaje);
 };
 
 const crearModalCarrito = () => {

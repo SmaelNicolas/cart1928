@@ -3,7 +3,7 @@
   height: 65px;
   background-color: #1e221cc9;
   position: fixed;
-  top: 32%;
+  top: 25%;
   z-index: 100;
   right: 0;
   display: flex;
@@ -101,6 +101,7 @@
     border: none;
     align-self: flex-end;
     padding-right: 20px;
+    color: red;
   }
 }
 

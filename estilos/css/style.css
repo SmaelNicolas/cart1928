@@ -36,12 +36,49 @@ body {
     text-align: center;
     padding-right: 0px; } }
 
+.contenedorMensajeAgregado {
+  display: flex;
+  justify-content: center; }
+
+.confirmacion {
+  width: 200px;
+  height: 40px;
+  position: fixed;
+  background-color: rgba(0, 255, 13, 0.568);
+  z-index: 100000;
+  top: 5%;
+  text-align: center;
+  font-weight: 800;
+  line-height: 35px;
+  -webkit-animation: scale-out-center 0.4s linear 0.4s both;
+  animation: scale-out-center 0.4s linear 0.4s both; }
+
+@-webkit-keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1; } }
+
+@keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1; } }
+
 .carrito {
   width: 45px;
   height: 65px;
   background-color: #1e221cc9;
   position: fixed;
-  top: 32%;
+  top: 25%;
   z-index: 100;
   right: 0;
   display: flex;
@@ -112,7 +149,8 @@ body {
     width: 15px;
     border: none;
     align-self: flex-end;
-    padding-right: 20px; }
+    padding-right: 20px;
+    color: red; }
 
 .modal-header {
   display: flex;
