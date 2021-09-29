@@ -128,6 +128,40 @@
 
         <h1 class="main__titulo">TIENDA ONLINE</h1>
 
+        <!-- <ul class="main__selectores">
+            <select class="main__selectores__select" id="selecTalles">
+                <option class="main__selectores__select__opt" value="todos">REMERAS</option>
+                <option class="main__selectores__select__opt" value="RemL">LARGE</option>
+                <option class="main__selectores__select__opt" value="RemXL">X-LARGE</option>
+                <option class="main__selectores__select__opt" value="RemXLL">XX-LARGE</option>
+            </select>
+            <select class="main__selectores__select" id="selecTalles">
+                <option class="main__selectores__select__opt" value="todos">JEANS</option>
+                <option class="main__selectores__select__opt" value="T48">46</option>
+                <option class="main__selectores__select__opt" value="T48">48</option>
+                <option class="main__selectores__select__opt" value="T50">50</option>
+                <option class="main__selectores__select__opt" value="T52">52</option>
+                <option class="main__selectores__select__opt" value="T52">54</option>
+            </select>
+            <select class="main__selectores__select" id="selecTalles">
+                <option class="main__selectores__select__opt" value="todos">SWEATERS</option>
+                <option class="main__selectores__select__opt" value="SwL">LARGE</option>
+                <option class="main__selectores__select__opt" value="SwXL">X-LARGE</option>
+                <option class="main__selectores__select__opt" value="SwXLL">XX-LARGE</option>
+            </select>
+            <select class="main__selectores__select" id="selecPrenda">
+                <option class="main__selectores__select__opt" value="VESTIDOS">VESTIDOS</option>
+                <option class="main__selectores__select__opt" value="VestCortos">CORTOS</option>
+                <option class="main__selectores__select__opt" value="VestLargos">LARGOS</option>
+            </select>
+            <select class="main__selectores__select" id="selecPrenda">
+                <option class="main__selectores__select__opt" value="VESTIDOS">ACCESORIOS</option>
+                <option class="main__selectores__select__opt" value="AccTodos">TODOS</option>
+            </select>
+
+
+        </ul> -->
+
         <div class="main__productos" id="tienda">
 
             <!-- Button trigger modal -->
@@ -173,6 +207,65 @@
 
 
     </main>
+
+
+    <!-- SECTION FIJA CARRITO -->
+    <section class="carrito" id="carrito">
+        <span class="carrito__itemstotal" id="itemsCarrito">0</span>
+        <a class="carrito__icon" href="#" data-toggle="modal" data-target="#modalCarrito"><i
+                class="fas fa-shopping-cart" id="iconoCarrito"></i></a>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCenterLongTitle">Articulos Seleccionados
+                    </h5>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+
+                </div>
+                <div class="modal-body" id="listaDelCarrito">
+                    <!-- <div class="itemModal">
+                        <img class="itemModal__imagen" src="./img/p.jpg" alt="">
+                        <div class="itemModal__info">
+                            <h5 class="itemModal__info__titulo">TITULO DEL PRODUCTO</h5>
+                            <div class="itemModal__info__cantidad">
+                                <div>Cantidad</div>
+                                <div>1</div>
+                            </div>
+                            <div class="itemModal__info__precio">
+                                <div>Precio</div>
+                                <div>$3000</div>
+                            </div>
+                        </div>
+                        <button class="itemModal__eliminar"><i class="far fa-trash-alt"></i></button>
+
+                    </div> -->
+                    <!-- <div class="modal__total">
+                        Total : $<span class="modal__total__valor">6000</span>
+                    </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark " data-dismiss="modal" id="vaciarCarrito">Vaciar
+                        Carrito</button>
+                    <button type="button" class="btn btn-rosa" data-dismiss="modal" id="finalizarCompra">FINALIZAR
+                        COMPRA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN SECCION FIJA CARRITO -->
+
+    <!-- CONFIRMACION AGREGAR AL CARRITO -->
+    <div class="contenedorMensajeAgregado" id="contenedorMensajeAgregado">
+
+        <!-- <div class="confirmacion">
+            <p>Agregado al carrito!</p>
+        </div> -->
+    </div>
+    <!-- FIN CONFIRMACION AGREGAR AL CARRITO -->
 
     <!--  FOOTER  -->
     <footer id="footer" class="footer">
@@ -245,65 +338,6 @@
 
     </footer>
     <!-- FIN  FOOTER  -->
-
-    <!-- SECTION FIJA CARRITO -->
-    <section class="carrito" id="carrito">
-        <span class="carrito__itemstotal" id="itemsCarrito">0</span>
-        <a class="carrito__icon" href="#" data-toggle="modal" data-target="#modalCarrito"><i
-                class="fas fa-shopping-cart" id="iconoCarrito"></i></a>
-    </section>
-    <!-- Modal -->
-    <div class="modal fade" id="modalCarrito" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalCenterLongTitle">Articulos Seleccionados
-                    </h5>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-
-                </div>
-                <div class="modal-body" id="listaDelCarrito">
-                    <!-- <div class="itemModal">
-                        <img class="itemModal__imagen" src="./img/p.jpg" alt="">
-                        <div class="itemModal__info">
-                            <h5 class="itemModal__info__titulo">TITULO DEL PRODUCTO</h5>
-                            <div class="itemModal__info__cantidad">
-                                <div>Cantidad</div>
-                                <div>1</div>
-                            </div>
-                            <div class="itemModal__info__precio">
-                                <div>Precio</div>
-                                <div>$3000</div>
-                            </div>
-                        </div>
-                        <button class="itemModal__eliminar"><i class="far fa-trash-alt"></i></button>
-
-                    </div> -->
-                    <!-- <div class="modal__total">
-                        Total : $<span class="modal__total__valor">6000</span>
-                    </div> -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark " data-dismiss="modal" id="vaciarCarrito">Vaciar
-                        Carrito</button>
-                    <button type="button" class="btn btn-rosa" data-dismiss="modal" id="finalizarCompra">FINALIZAR
-                        COMPRA</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FIN SECCION FIJA CARRITO -->
-
-    <!-- CONFIRMACION AGREGAR AL CARRITO -->
-
-    <div class="contenedorMensajeAgregado" id="contenedorMensajeAgregado">
-
-        <!-- <div class="confirmacion">
-            <p>Agregado al carrito!</p>
-        </div> -->
-    </div>
-    <!-- FIN CONFIRMACION AGREGAR AL CARRITO -->
 
 
 
