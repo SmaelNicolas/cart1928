@@ -1,14 +1,14 @@
 let tienda = document.getElementById("tienda"); //Donde se van a mostrar todos los productos
-let etiquetaCantidadEnCarrito = document.getElementById("itemsCarrito"); // cantidad de items en el carrito
+let etiquetaCantidadEnCarrito = document.getElementById("itemsCarrito"); // etiqueta agregar cantidad de items en el carrito
 let modalCarritoLista = document.getElementById("listaDelCarrito"); // modal al hacer click en el icono del carrito
 
 let id = 1; // id para diferenciar todos los productos
 
 let catalogo = []; //array para mostrar lso productos en la tienda
-let carrito;
-let cantEnCarrito;
+let carrito; // variable para guardar carrito en localStorage
+let cantEnCarrito; //variable para guardar cant en el carrito en localStorage
 
-let guardarCatalogoJSON; // el array catalogo pero en formato JSON
+let guardarCatalogoJSON; // variable para el  array catalogo en formato JSON
 
 //FUNCIONES
 
@@ -130,7 +130,6 @@ const clickBorrarItem = (item) => {
 //si hay productos devuelve un alert por la suma de precios
 const clickFinalizarCompra = (precioTotal) => {
   let botonFinalizarCompra = document.getElementById("finalizarCompra");
-  // let carritoLS = JSON.parse(localStorage.getItem("carrito"));
 
   botonFinalizarCompra.onclick = () => {
     if (carrito.length != 0) {
@@ -145,6 +144,7 @@ const clickFinalizarCompra = (precioTotal) => {
 //click en boton vaciar carrito elimina si hay productos en la lista
 const clickVaciarCarrito = () => {
   let botonVaciarCarrito = document.getElementById("vaciarCarrito");
+
   botonVaciarCarrito.onclick = () => {
     if (carrito.length != 0) {
       vaciarCarrito();
@@ -162,6 +162,7 @@ const vaciarCarrito = () => {
   catalogo.forEach((item) => {
     item.cantidad = 1;
   });
+
   etiquetaCantidadEnCarrito.innerHTML = 0;
 
   limpiarListaModal();
