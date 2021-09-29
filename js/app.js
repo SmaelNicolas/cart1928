@@ -4,9 +4,9 @@ let modalCarritoLista = document.getElementById("listaDelCarrito"); // modal al 
 
 let id = 1; // id para diferenciar todos los productos
 
-let cantItemsEnCarrito = 0; // items en carrito
 let catalogo = []; //array para mostrar lso productos en la tienda
-let carrito = []; // array para mostrar los items agregados al carrito
+let carrito;
+let cantEnCarrito;
 
 let guardarCarritoJSON; //el array carrito pero en formato JSON
 let guardarCatalogoJSON; // el array catalogo pero en formato JSON
@@ -23,7 +23,7 @@ class Producto {
     this.imagen = imagen;
     this.cantidad = 1;
     this.info = `${this.nombre} ${this.talle} ${this.modelo} ${this.color}.`;
-    guardarProductoEnLocalStorage(this.id, this.info);
+    // guardarProductoEnLocalStorage(this.id, this.info);
   }
 }
 
@@ -38,11 +38,27 @@ class Accesorio {
     this.imagen = imagen;
     this.cantidad = 1;
     this.info = `${this.nombre} de ${this.material} ${this.modelo}.`;
-    guardarProductoEnLocalStorage(this.id, this.info);
   }
 }
 
 //FUNCIONES
+
+//busca en el LS si hay algo guardado, si hay lo utiliza, si no hay inicializa.
+const initVariablesCarrito = () => {
+  if (localStorage.getItem("carrito") == undefined) {
+    carrito = [];
+  } else {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+  }
+
+  if (localStorage.getItem("cantEnCarrito") == undefined) {
+    cantEnCarrito = 0;
+  } else {
+    cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
+  }
+
+  etiquetaCantidadEnCarrito.innerHTML = cantEnCarrito;
+};
 
 //Crea producto llamando a la clase Producto y aumenta el id
 const crearProducto = (nombre, talle, modelo, color, precio, imagen) => {
@@ -124,11 +140,6 @@ const inicializarProductos = () => {
   guardarCatalogoJSON = JSON.stringify(catalogo);
 };
 
-//guarda en localStorage los items con Clave K y valor V   (id , info)
-const guardarProductoEnLocalStorage = (k, v) => {
-  localStorage.setItem(k, v);
-};
-
 //Crea todas las "tarjetas" de los productos agregandolos un DIV y luego el div ,como hijo al id="tienda"
 const crearCatalogo = () => {
   //  for (const item of catalogo) {     ,
@@ -194,13 +205,21 @@ const clickAgregarCarrito = () => {
   }
 };
 
+const actualizarCarritoCantCarrito = (array, integer) => {
+  localStorage.setItem("carrito", JSON.stringify(array));
+  localStorage.setItem("cantEnCarrito", JSON.stringify(integer));
+};
+
 //Si el elemento con id esta en carrito , aumenta en 1 la cantidad y cambia la etiqueta cantidad , sino llama a agregar al carrito
 const estaEnCarrito = (idRepetido) => {
   let estaItem = carrito.find((estaItem) => estaItem.id == idRepetido);
+  let cantEnCarritoLS = JSON.parse(localStorage.getItem("cantEnCarrito"));
+
   if (estaItem) {
     estaItem.cantidad += 1;
-    cantItemsEnCarrito += 1;
-    etiquetaCantidadEnCarrito.innerHTML = cantItemsEnCarrito;
+    cantEnCarritoLS += 1;
+    etiquetaCantidadEnCarrito.innerHTML = cantEnCarritoLS;
+    actualizarCarritoCantCarrito(carrito, cantEnCarritoLS);
   } else {
     agregarCarrito(idRepetido);
   }
@@ -209,10 +228,13 @@ const estaEnCarrito = (idRepetido) => {
 //Agrega el producto al carrito , aumenta en 1 la cantidad de items en carrito y cambia la etiqueta del carrito
 const agregarCarrito = (idProducto) => {
   let producto = catalogo.find((producto) => producto.id == idProducto);
+  let cantEnCarritoLS = JSON.parse(localStorage.getItem("cantEnCarrito"));
+
   carrito.push(producto);
-  cantItemsEnCarrito += 1;
-  etiquetaCantidadEnCarrito.innerHTML = cantItemsEnCarrito;
-  guardarCarritoJSON = JSON.stringify(carrito);
+  cantEnCarritoLS += 1;
+  etiquetaCantidadEnCarrito.innerHTML = cantEnCarritoLS;
+
+  actualizarCarritoCantCarrito(carrito, cantEnCarritoLS);
 };
 
 //actualiza y abre el modal con la lista cada vez que se hace click
@@ -279,15 +301,21 @@ const crearModalCarrito = () => {
 //si hay mas de 1 item del mismo producto , resta 1 en cantidad si hay solo 1 item lo elimina ,  despues  actualiza la lista y la cantidad en carrito.
 const clickBorrarItem = (item) => {
   let botonEliminar = document.getElementById(`botonEliminar${item.id}`);
+  let cantEnCarritoLS = JSON.parse(localStorage.getItem("cantEnCarrito"));
+
   botonEliminar.onclick = () => {
     if (item.cantidad > 1) {
       item.cantidad -= 1;
     } else {
-      if ((item.cantidad = 1)) {
+      if (item.cantidad == 1) {
         carrito = carrito.filter((prodE) => prodE.id != item.id);
       }
     }
-    cantItemsEnCarrito -= 1;
+    cantEnCarritoLS -= 1;
+    actualizarCarritoCantCarrito(carrito, cantEnCarritoLS);
+
+    etiquetaCantidadEnCarrito.innerHTML = cantEnCarritoLS;
+
     limpiarListaModal();
     crearModalCarrito();
   };
@@ -296,6 +324,8 @@ const clickBorrarItem = (item) => {
 //si hay productos devuelve un alert por la suma de precios
 const clickFinalizarCompra = (precioTotal) => {
   let botonFinalizarCompra = document.getElementById("finalizarCompra");
+  // let carritoLS = JSON.parse(localStorage.getItem("carrito"));
+
   botonFinalizarCompra.onclick = () => {
     if (carrito.length != 0) {
       alert(`El pago por $${precioTotal} fue aceptado. Gracias por su Compra`);
@@ -320,12 +350,14 @@ const clickVaciarCarrito = () => {
 
 //elimina los productos en carrito
 const vaciarCarrito = () => {
-  cantItemsEnCarrito = 0;
   carrito = [];
-  etiquetaCantidadEnCarrito.innerHTML = cantItemsEnCarrito;
+  localStorage.clear();
+
   catalogo.forEach((item) => {
     item.cantidad = 1;
   });
+  etiquetaCantidadEnCarrito.innerHTML = 0;
+
   limpiarListaModal();
 };
 
@@ -334,29 +366,29 @@ const limpiarListaModal = () => {
   while (modalCarritoLista.firstChild) {
     modalCarritoLista.removeChild(modalCarritoLista.firstChild);
   }
-  etiquetaCantidadEnCarrito.innerHTML = cantItemsEnCarrito;
 };
 
 //muestra por consola los JSON y el localStorage
 const mostrarLocalStorageYJSON = () => {
-  console.log("ITEMS EN CATALOGO JSON");
-  console.log(guardarCatalogoJSON);
-  console.log("");
-  console.log("ITEMS EN CARRITO JSON");
-  if (guardarCarritoJSON == undefined) {
-    console.warn("VACIO , Agregar productos y mostrar denuevo");
-  } else {
-    console.log(guardarCarritoJSON);
-  }
-  console.log("");
-  console.log("ITEMS EN LOCAL STORAGE");
-  for (var i = 0; i < localStorage.length; i++) {
-    console.log(localStorage.getItem(localStorage.key(i)));
-  }
+  // console.log("ITEMS EN CATALOGO JSON");
+  // console.log(guardarCatalogoJSON);
+  // console.log("");
+  // console.log("ITEMS EN CARRITO JSON");
+  // if (guardarCarritoJSON == undefined) {
+  //   console.warn("VACIO , Agregar productos y mostrar denuevo");
+  // } else {
+  //   console.log(guardarCarritoJSON);
+  // }
+  // console.log("");
+  // console.log("ITEMS EN LOCAL STORAGE");
+  // for (var i = 0; i < localStorage.length; i++) {
+  //   console.log(localStorage.getItem(localStorage.key(i)));
+  // }
 };
 
 //llama a todas las funciones
 const app = () => {
+  initVariablesCarrito();
   inicializarProductos();
   crearCatalogo();
   clickAgregarCarrito();
