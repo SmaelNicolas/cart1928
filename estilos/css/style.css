@@ -2,11 +2,11 @@
 /* Animacion ROTACION DE TEXTO */
 @font-face {
   font-family: Biko;
-  src: url(../../../estilos/biko_font/Biko_Regular.otf); }
+  src: url(../.././estilos/biko_font/Biko_Regular.otf); }
 
 @font-face {
   font-family: BikoBold;
-  src: url(../../../biko_font/Biko_Bold.otf); }
+  src: url(../.././estilos/biko_font/Biko_Bold.otf); }
 
 * {
   margin: 0;
@@ -377,6 +377,8 @@ body {
           max-height: 6500px;
           margin: 0 auto; }
       .main__productos__card__title {
+        width: 100%;
+        height: 50px;
         text-align: center; }
       .main__productos__card__precio {
         text-align: center; }
