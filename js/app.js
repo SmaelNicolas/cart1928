@@ -1,12 +1,8 @@
-let tienda = document.getElementById("tienda"); //Donde se van a mostrar todos los productos
-let etiquetaCantidadEnCarrito = document.getElementById("itemsCarrito"); // etiqueta agregar cantidad de items en el carrito
-let modalCarritoLista = document.getElementById("listaDelCarrito"); // modal al hacer click en el icono del carrito
-
 let id = 1; // id para diferenciar todos los productos
-
 let catalogo = []; //array para mostrar lso productos en la tienda
 let carrito; // variable para guardar carrito en localStorage
 let cantEnCarrito; //variable para guardar cant en el carrito en localStorage
+let precioTotal; //variable para guardar el total de los productos
 
 let guardarCatalogoJSON; // variable para el  array catalogo en formato JSON
 
@@ -14,60 +10,57 @@ let guardarCatalogoJSON; // variable para el  array catalogo en formato JSON
 
 //busca en el LS si hay guardado, si hay lo utiliza, si no hay inicializa. Agrega la etiqueta sobre el carrito
 const iniciarLocalStorage = () => {
-  if (localStorage.getItem("carrito") == undefined) {
-    carrito = [];
-  } else {
-    carrito = JSON.parse(localStorage.getItem("carrito"));
-  }
+  localStorage.getItem("carrito") == undefined
+    ? (carrito = [])
+    : (carrito = JSON.parse(localStorage.getItem("carrito")));
 
-  if (localStorage.getItem("cantEnCarrito") == undefined) {
-    cantEnCarrito = 0;
-  } else {
-    cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
-  }
+  localStorage.getItem("cantEnCarrito") == undefined
+    ? (cantEnCarrito = 0)
+    : (cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito")));
 
-  etiquetaCantidadEnCarrito.innerHTML = cantEnCarrito;
+  localStorage.getItem("precioTotal") == undefined
+    ? (precioTotal = 0)
+    : (precioTotal = JSON.parse(localStorage.getItem("precioTotal")));
+
+  $("#itemsCarrito").text(cantEnCarrito);
 };
 
 //activa los botones de todos los id del catalogo y del modal.
 const clickAgregarCarrito = () => {
   for (let i = 1; i < id; i++) {
-    let botonComprar = document.getElementById(`botonComprar${i}`);
-    let botonComprarModal = document.getElementById(`botonComprarModal${i}`);
-
-    botonComprar.onclick = () => {
+    $(`#botonComprar${i}`).on("click", () => {
       estaEnCarrito(i);
       mensajeAgregado();
-    };
+    });
 
-    botonComprarModal.onclick = () => {
+    $(`#botonComprarModal${i}`).on("click", () => {
       estaEnCarrito(i);
       mensajeAgregado();
-    };
+    });
   }
 };
 
 //crea un mensaje para corroborar que se agrego al carrito
 const mensajeAgregado = () => {
-  let contenedorMensaje = document.createElement("div");
-  contenedorMensaje.classList.add("confirmacion");
-  contenedorMensaje.innerHTML = "Agregado al carrito";
-  document
-    .getElementById("contenedorMensajeAgregado")
-    .appendChild(contenedorMensaje);
+  $("#contenedorMensajeAgregado").append(
+    `<div class="confirmacion">
+        <p>Agregado al Carrito<p>
+    </div>`
+  );
 };
 
 //Si el elemento con id esta en carrito , aumenta en 1 la cantidad y cambia la etiqueta cantidad , agrega al carrito
 const estaEnCarrito = (idRepetido) => {
-  let estaItem = carrito.find((estaItem) => estaItem.id == idRepetido);
+  let producto = carrito.find((producto) => producto.id == idRepetido);
 
-  let cantEnCarritoLS = JSON.parse(localStorage.getItem("cantEnCarrito"));
+  cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
 
-  if (estaItem) {
-    estaItem.cantidad += 1;
-    cantEnCarritoLS += 1;
-    etiquetaCantidadEnCarrito.innerHTML = cantEnCarritoLS;
-    actualizarLocalStorage(carrito, cantEnCarritoLS);
+  if (producto) {
+    producto.cantidad += 1;
+    cantEnCarrito += 1;
+    $("#itemsCarrito").text(cantEnCarrito);
+    precioTotal += producto.precio;
+    actualizarLocalStorage();
   } else {
     agregarCarrito(idRepetido);
   }
@@ -77,102 +70,87 @@ const estaEnCarrito = (idRepetido) => {
 const agregarCarrito = (idProducto) => {
   let producto = catalogo.find((producto) => producto.id == idProducto);
 
-  let cantEnCarritoLS = JSON.parse(localStorage.getItem("cantEnCarrito"));
+  cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
 
   carrito.push(producto);
 
-  cantEnCarritoLS += 1;
-  etiquetaCantidadEnCarrito.innerHTML = cantEnCarritoLS;
-
-  actualizarLocalStorage(carrito, cantEnCarritoLS);
+  cantEnCarrito += 1;
+  $("#itemsCarrito").text(cantEnCarrito);
+  precioTotal += producto.precio;
+  actualizarLocalStorage();
 };
 
 //actualiza el localStorage
-const actualizarLocalStorage = (array, integer) => {
-  localStorage.setItem("carrito", JSON.stringify(array));
-  localStorage.setItem("cantEnCarrito", JSON.stringify(integer));
+const actualizarLocalStorage = () => {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  localStorage.setItem("cantEnCarrito", JSON.stringify(cantEnCarrito));
+  localStorage.setItem("precioTotal", JSON.stringify(precioTotal));
 };
 
 //actualiza y abre el modal con la lista cada vez que se hace click
 const clickIconoCarrito = () => {
-  let botonIconCarrito = document.getElementById("iconoCarrito");
-
-  botonIconCarrito.onclick = () => {
+  $("#iconoCarrito").on("click", () => {
     limpiarListaModal();
     crearModalCarrito();
-  };
+  });
 };
 
 //si hay mas de 1 item del mismo producto , resta 1 en cantidad si hay solo 1 item lo elimina ,  despues  actualiza la lista y la cantidad en carrito.
 const clickBorrarItem = (item) => {
-  let botonEliminar = document.getElementById(`botonEliminar${item.id}`);
+  cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
 
-  let cantEnCarritoLS = JSON.parse(localStorage.getItem("cantEnCarrito"));
+  $(`#botonEliminar${item.id}`).on("click", () => {
+    item.cantidad > 1
+      ? (item.cantidad -= 1)
+      : item.cantidad == 1
+      ? (carrito = carrito.filter((prodEliminar) => prodEliminar.id != item.id))
+      : console.log("ERROR CLICK BORRAR");
 
-  botonEliminar.onclick = () => {
-    if (item.cantidad > 1) {
-      item.cantidad -= 1;
-    } else {
-      if (item.cantidad == 1) {
-        carrito = carrito.filter((prodEliminar) => prodEliminar.id != item.id);
-      }
-    }
-    cantEnCarritoLS -= 1;
-    actualizarLocalStorage(carrito, cantEnCarritoLS);
+    cantEnCarrito -= 1;
+    precioTotal -= item.precio;
+    actualizarLocalStorage();
 
-    etiquetaCantidadEnCarrito.innerHTML = cantEnCarritoLS;
+    $("#itemsCarrito").text(cantEnCarrito);
 
     limpiarListaModal();
     crearModalCarrito();
-  };
+  });
 };
 
 //si hay productos devuelve un alert por la suma de precios
-const clickFinalizarCompra = (precioTotal) => {
-  let botonFinalizarCompra = document.getElementById("finalizarCompra");
-
-  botonFinalizarCompra.onclick = () => {
-    if (carrito.length != 0) {
-      alert(`El pago por $${precioTotal} fue aceptado. Gracias por su Compra`);
-      vaciarCarrito();
-    } else {
-      alert("No hay productos a comprar");
-    }
-  };
+const clickFinalizarCompra = () => {
+  $("#finalizarCompra").on("click", () => {
+    carrito.length != 0 ? vaciarCarrito() : alert("No hay productos a comprar");
+  });
 };
 
 //click en boton vaciar carrito elimina si hay productos en la lista
 const clickVaciarCarrito = () => {
-  let botonVaciarCarrito = document.getElementById("vaciarCarrito");
-
-  botonVaciarCarrito.onclick = () => {
-    if (carrito.length != 0) {
-      vaciarCarrito();
-    } else {
-      alert("No hay productos en carrito");
-    }
-  };
+  $("#vaciarCarrito").on("click", () => {
+    carrito.length != 0
+      ? vaciarCarrito()
+      : alert("No hay productos en carrito");
+  });
 };
 
 //elimina los productos en carrito
 const vaciarCarrito = () => {
   carrito = [];
+  precioTotal = 0;
   localStorage.clear();
 
   catalogo.forEach((item) => {
     item.cantidad = 1;
   });
 
-  etiquetaCantidadEnCarrito.innerHTML = 0;
+  $("#itemsCarrito").text(0);
 
   limpiarListaModal();
 };
 
 //remueve todos los hijos creados cada vez que se agrega un item de distinto id al carrito y actualiza la cantidad de productos en carrito
 const limpiarListaModal = () => {
-  while (modalCarritoLista.firstChild) {
-    modalCarritoLista.removeChild(modalCarritoLista.firstChild);
-  }
+  $("#listaDelCarrito").empty();
 };
 
 //muestra por consola los JSON y el localStorage
@@ -190,7 +168,10 @@ const app = () => {
   clickAgregarCarrito();
   clickIconoCarrito();
   clickVaciarCarrito();
+  clickFinalizarCompra();
   mostrarCatalogoJSON();
 };
 
-app();
+$(document).ready(function () {
+  app();
+});
