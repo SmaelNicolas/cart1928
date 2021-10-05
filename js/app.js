@@ -28,12 +28,12 @@ const iniciarLocalStorage = () => {
 //activa los botones de todos los id del catalogo y del modal.
 const clickAgregarCarrito = () => {
   for (let i = 1; i < id; i++) {
-    $(`#botonComprar${i}`).on("click", () => {
+    $(`#botonComprar${i}`).click(() => {
       estaEnCarrito(i);
       mensajeAgregado();
     });
 
-    $(`#botonComprarModal${i}`).on("click", () => {
+    $(`#botonComprarModal${i}`).click(() => {
       estaEnCarrito(i);
       mensajeAgregado();
     });
@@ -90,7 +90,7 @@ const actualizarLocalStorage = () => {
 
 //actualiza y abre el modal con la lista cada vez que se hace click
 const clickIconoCarrito = () => {
-  $("#iconoCarrito").on("click", () => {
+  $("#iconoCarrito").click(() => {
     limpiarListaModal();
     crearModalCarrito();
   });
@@ -100,7 +100,7 @@ const clickIconoCarrito = () => {
 const clickBorrarItem = (item) => {
   cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
 
-  $(`#botonEliminar${item.id}`).on("click", () => {
+  $(`#botonEliminar${item.id}`).click(() => {
     item.cantidad > 1
       ? (item.cantidad -= 1)
       : item.cantidad == 1
@@ -151,14 +151,14 @@ const clickModificarCantidad = (item) => {
 
 //si hay productos devuelve un alert por la suma de precios
 const clickFinalizarCompra = () => {
-  $("#finalizarCompra").on("click", () => {
+  $("#finalizarCompra").click(() => {
     carrito.length != 0 ? vaciarCarrito() : alert("No hay productos a comprar");
   });
 };
 
 //click en boton vaciar carrito elimina si hay productos en la lista
 const clickVaciarCarrito = () => {
-  $("#vaciarCarrito").on("click", () => {
+  $("#vaciarCarrito").click(() => {
     carrito.length != 0
       ? vaciarCarrito()
       : alert("No hay productos en carrito");
