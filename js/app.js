@@ -85,6 +85,7 @@ const actualizarLocalStorage = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   localStorage.setItem("cantEnCarrito", JSON.stringify(cantEnCarrito));
   localStorage.setItem("precioTotal", JSON.stringify(precioTotal));
+  $("#itemsCarrito").text(cantEnCarrito);
 };
 
 //actualiza y abre el modal con la lista cada vez que se hace click
@@ -114,6 +115,39 @@ const clickBorrarItem = (item) => {
 
     limpiarListaModal();
     crearModalCarrito();
+  });
+};
+
+const clickModificarCantidad = (item) => {
+  cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
+  let cantAnterior = parseInt($(`#inputCantidad${item.id}`).val());
+
+  $(`#inputCantidad${item.id}`).change(function () {
+    let cantNueva = parseInt($(`#inputCantidad${item.id}`).val());
+
+    if (cantNueva <= 0) {
+      $(`#inputCantidad${item.id}`).val(cantAnterior);
+    } else {
+      if (cantNueva > cantAnterior) {
+        cantEnCarrito += cantNueva - cantAnterior;
+        precioTotal += (cantNueva - cantAnterior) * item.precio;
+      } else {
+        cantEnCarrito -= cantAnterior - cantNueva;
+        precioTotal -= (cantAnterior - cantNueva) * item.precio;
+      }
+
+      console.log(cantEnCarrito);
+
+      let producto = carrito.find((producto) => producto == item);
+
+      producto.cantidad = cantNueva;
+
+      actualizarLocalStorage();
+
+      limpiarListaModal();
+
+      crearModalCarrito();
+    }
   });
 };
 

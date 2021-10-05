@@ -16,7 +16,8 @@
   scroll-behavior: smooth;
   font-family: Biko;
   text-align: center;
-  list-style-type: none; }
+  list-style-type: none;
+  cursor: default; }
 
 body {
   width: calc(100% - 0);
@@ -125,9 +126,8 @@ body {
     width: 60%;
     margin: 0 auto; }
     .itemModal__info__titulo {
-      width: 100%;
-      text-align: start;
-      margin-left: -10px; }
+      width: 105%;
+      text-align: start; }
     .itemModal__info__cantidad {
       display: flex;
       width: 100%;
@@ -136,6 +136,10 @@ body {
       flex-wrap: nowrap;
       justify-content: space-between;
       margin-bottom: 10px; }
+      .itemModal__info__cantidad__input {
+        width: 40px;
+        text-align: center;
+        opacity: 1; }
     .itemModal__info__precio {
       display: flex;
       width: 100%;
@@ -155,6 +159,9 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between; }
+
+.modal-body {
+  padding: 5px; }
 
 .modal__total {
   width: 100%;
@@ -207,7 +214,8 @@ body {
       .header__ul__li__a {
         text-decoration: none; }
         .header__ul__li__a:hover {
-          color: black; }
+          color: black;
+          cursor: pointer; }
         .header__ul__li__a__text--color {
           color: black; }
       .header__ul__li:hover {
@@ -377,9 +385,10 @@ body {
           max-height: 6500px;
           margin: 0 auto; }
       .main__productos__card__title {
-        width: 100%;
-        height: 50px;
-        text-align: center; }
+        width: 95%;
+        height: 40px;
+        text-align: start;
+        margin-left: 10px; }
       .main__productos__card__precio {
         text-align: center; }
       .main__productos__card__button {
@@ -387,7 +396,7 @@ body {
         height: 25px;
         margin: 0 auto;
         cursor: pointer;
-        border: 1px solid black;
+        border: 1px solid rgba(190, 153, 176, 0.671);
         background-color: black;
         color: white;
         text-decoration: none; }

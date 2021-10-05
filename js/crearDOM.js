@@ -58,7 +58,11 @@ const crearModalCarrito = () => {
       }</h5>
             <div class="itemModal__info__cantidad" id="infoCantidad">
                   <div>Cantidad</div>
-                  <div id="cantidadEnCarrito${item.id}">${item.cantidad}</div>
+                   <input class="itemModal__info__cantidad__input" id="inputCantidad${
+                     item.id
+                   }" type="text">
+
+                  
             </div>
             <div class="itemModal__info__precio" id="infoPrecio">
               <p>Precio</p>
@@ -71,7 +75,9 @@ const crearModalCarrito = () => {
       </div>
 `
     );
+    $(`#inputCantidad${item.id}`).val(`${item.cantidad}`);
 
+    clickModificarCantidad(item);
     clickBorrarItem(item);
   }
 

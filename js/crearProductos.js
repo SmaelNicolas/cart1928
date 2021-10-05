@@ -20,7 +20,7 @@ const crearProducto = (categoria, descripcion, precio, imagen) => {
 const inicializarProductos = () => {
   crearProducto(
     "Remera",
-    "Remera talle XXL manga corta estampada color azul",
+    "Talle XXL manga corta estampada color azul",
     1240,
     "https://i.ibb.co/h8n8x59/p.jpg"
   );

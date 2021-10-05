@@ -70,9 +70,8 @@
     margin: 0 auto;
 
     &__titulo {
-      width: 100%;
+      width: 105%;
       text-align: start;
-      margin-left: -10px;
     }
 
     &__cantidad {
@@ -83,6 +82,12 @@
       flex-wrap: nowrap;
       justify-content: space-between;
       margin-bottom: 10px;
+
+      &__input {
+        width: 40px;
+        text-align: center;
+        opacity: 1;
+      }
     }
 
     &__precio {
@@ -110,6 +115,10 @@
   justify-content: space-between;
 }
 
+.modal-body {
+  padding: 5px;
+}
+
 .modal__total {
   width: 100%;
   height: auto;
@@ -128,7 +137,7 @@
 }
 
 .btn-rosa {
-  background-color: rgba(190, 153, 176, 0.671);
+  background-color: $color-pink;
 }
 
 @media only screen and (max-width: 500px) {
