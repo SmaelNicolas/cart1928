@@ -1,3 +1,7 @@
+$("#main").append(` <h1 class="main__titulo">TIENDA ONLINE</h1>
+<div class="main__productos" id="tienda">
+`);
+
 //Crea todas las "tarjetas" de los productos agregandolos un DIV y luego el div ,como hijo al id="tienda"
 const crearCatalogo = () => {
   //  for (const item of catalogo) {     ,
