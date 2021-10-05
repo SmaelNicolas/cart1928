@@ -111,8 +111,6 @@ const clickBorrarItem = (item) => {
     precioTotal -= item.precio;
     actualizarLocalStorage();
 
-    $("#itemsCarrito").text(cantEnCarrito);
-
     limpiarListaModal();
     crearModalCarrito();
   });
