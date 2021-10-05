@@ -88,6 +88,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center; }
+  .carrito__imagen:hover {
+    cursor: pointer; }
   .carrito__itemstotal {
     width: 15px;
     height: 27px;
@@ -114,8 +116,7 @@ body {
   margin-bottom: 10px; }
   .itemModal:hover {
     box-shadow: -2px 0px 10px 5px rgba(12, 12, 12, 0.582);
-    transition: 0.3s;
-    cursor: default; }
+    transition: 0.3s; }
   .itemModal__imagen {
     width: 90px;
     height: 90px;
@@ -178,16 +179,6 @@ body {
 
 .btn-rosa {
   background-color: rgba(190, 153, 176, 0.671); }
-
-@media only screen and (max-width: 500px) {
-  .socials {
-    width: 205px;
-    height: 45px;
-    top: 0%;
-    left: 0%;
-    border-radius: 0 0 15px 0;
-    display: flex;
-    flex-direction: row; } }
 
 .header {
   display: flex;
