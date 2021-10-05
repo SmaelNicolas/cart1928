@@ -3733,3 +3733,15 @@ node_modules/yargs-parser/build/lib/string-utils.js
 node_modules/yargs-parser/build/lib/tokenize-arg-string.js
 node_modules/yargs-parser/build/lib/yargs-parser-types.js
 node_modules/yargs-parser/build/lib/yargs-parser.js
+estilos/scss/style.scss
+estilos/scss/components/_animations.scss
+estilos/scss/components/_carrito.scss
+estilos/scss/components/_confirmacion.scss
+estilos/scss/components/_fonts.scss
+estilos/scss/components/_minitop.scss
+estilos/scss/core/_breakouts.scss
+estilos/scss/core/_variables.scss
+estilos/scss/core/resets.scss
+estilos/scss/layout/_catalogo.scss
+estilos/scss/layout/_footer.scss
+estilos/scss/layout/_header.scss
