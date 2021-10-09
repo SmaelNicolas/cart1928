@@ -93,6 +93,14 @@ const clickIconoCarrito = () => {
   $("#iconoCarrito").click(() => {
     limpiarListaModal();
     crearModalCarrito();
+
+    if (carrito.length == 0) {
+      $("#continuarCompra").prop("disabled", true);
+      $("#vaciarCarrito").prop("disabled", true);
+    } else {
+      $("#continuarCompra").prop("disabled", false);
+      $("#vaciarCarrito").prop("disabled", false);
+    }
   });
 };
 
@@ -120,7 +128,7 @@ const clickModificarCantidad = (item) => {
   cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
   let cantAnterior = parseInt($(`#inputCantidad${item.id}`).val());
 
-  $(`#inputCantidad${item.id}`).change(function () {
+  $(`#inputCantidad${item.id}`).change(() => {
     let cantNueva = parseInt($(`#inputCantidad${item.id}`).val());
 
     if (cantNueva <= 0) {
@@ -150,18 +158,63 @@ const clickModificarCantidad = (item) => {
 };
 
 //si hay productos devuelve un alert por la suma de precios
-const clickFinalizarCompra = () => {
+const clickContinuar = () => {
+  $("#continuarCompra").click(() => {
+    crearModalFinalizarCompra();
+    $("#finalizarCompra").prop("disabled", true);
+
+    $("#valorEnvio").html(0);
+    $("#valorTotalConEnvio").html(precioTotal);
+    localStorage.setItem("precioTotalConEnvio", precioTotal);
+    cambiosEnEnviar();
+  });
+};
+
+const cambiosEnEnviar = () => {
+  $("#seleccionEnvios").change(() => {
+    let precioTotalConEnvio = precioTotal;
+    $("#modalidadEnvio").empty();
+
+    if ($("#seleccionEnvios").val() == "enviar") {
+      precioTotalConEnvio += 400;
+      enviarDomicilio();
+      $("#finalizarCompra").prop("disabled", false);
+      $("#valorEnvio").html(400);
+
+      clickFinalizarCompra(400);
+    } else {
+      if ($("#seleccionEnvios").val() == "retirar") {
+        retiraPorLocal();
+        $("#finalizarCompra").prop("disabled", false);
+        $("#valorEnvio").html(0);
+
+        clickFinalizarCompra(0);
+      } else {
+        $("#finalizarCompra").prop("disabled", true);
+      }
+    }
+
+    localStorage.setItem("precioTotalConEnvio", precioTotalConEnvio);
+    $("#valorTotalConEnvio").html(precioTotalConEnvio);
+  });
+};
+
+const clickFinalizarCompra = (valor) => {
   $("#finalizarCompra").click(() => {
-    carrito.length != 0 ? vaciarCarrito() : alert("No hay productos a comprar");
+    let cart = JSON.parse(localStorage.getItem("carrito"));
+    let txt = "";
+    for (let i = 0; i < cart.length; i++) {
+      txt += `${cart[i].cantidad}x ${cart[i].descripcion}  \n`;
+    }
+    console.log(txt);
+    vaciarCarrito();
   });
 };
 
 //click en boton vaciar carrito elimina si hay productos en la lista
 const clickVaciarCarrito = () => {
   $("#vaciarCarrito").click(() => {
-    carrito.length != 0
-      ? vaciarCarrito()
-      : alert("No hay productos en carrito");
+    vaciarCarrito();
   });
 };
 
@@ -197,10 +250,11 @@ const app = () => {
   iniciarLocalStorage();
   inicializarProductos();
   crearCatalogo();
+
   clickAgregarCarrito();
   clickIconoCarrito();
   clickVaciarCarrito();
-  clickFinalizarCompra();
+  clickContinuar();
   mostrarCatalogoJSON();
 };
 

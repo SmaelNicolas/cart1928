@@ -1,4 +1,5 @@
-$("#main").append(` <h1 class="main__titulo">TIENDA ONLINE</h1>
+$("#main")
+  .append(` <h1 class="main__titulo" id="tituloTienda">TIENDA ONLINE</h1>
 <div class="main__productos" id="tienda">
 `);
 
@@ -8,13 +9,13 @@ const crearCatalogo = () => {
   for (const item of JSON.parse(guardarCatalogoJSON)) {
     $("#tienda").append(` 
     <!-- Button trigger modal -->
-    <div class="main__productos__card" id="${item.id}">
+    <div class="main__productos__card " id="${item.id}">
 
     <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter${item.id}">
         <img class="main__productos__card__image" src="${item.imagen}" alt="">
     </button>
 
-    <p class="main__productos__card__title">${item.descripcion}</p>
+    <p class="main__productos__card__title">${item.categoria} ${item.descripcion}</p>
 
     <p class="main__productos__card__precio">$ ${item.precio}</p>
 
@@ -35,7 +36,7 @@ const crearCatalogo = () => {
 
           <div class="modal-body">
             <img class="main__productos__card__image__modal" src="https://i.ibb.co/h8n8x59/p.jpg" alt="">
-            <p class="main__productos__card__title">${item.descripcion} </p>
+            <p class="main__productos__card__title">${item.categoria} ${item.descripcion} </p>
             <p class="main__productos__card__precio">$ ${item.precio}</p>
           </div>
 
