@@ -1,64 +1,88 @@
 const crearModalFinalizarCompra = () => {
-  $("#bodyModalFinalizar").empty();
-  $("#bodyModalFinalizar")
-    .append(`<section class="modalFinalizarCompra" id="modalFinalizarCompra">
-        <h5 class="modalFinalizarCompra__titulo">Envios</h5>
-        <select class="modalFinalizarCompra__selector" name="envios" id="seleccionEnvios">
-            <option value="vacio">Seleccione Envio</option>
-            <option value="retirar">Retirar por el Local</option>
-            <option value="enviar">Envio a domicilio</option>
-        </select>
+  $("#carritoSeccion").append(`<!- MODAL FINALIZAR COMPRA-->
+        <div class="modal fade" id="modalFinalizarCompra" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalCenterLongTitle">Finalizar Compra
+                        </h5>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
 
-        <section class="modalidadEnvio" id="modalidadEnvio">
-        
-       
-        </section>
+                    </div>
+                    <div class="modal-body" id="bodyModalFinalizar">
+                <section class="modalFinalizarCompra" id="listaEnvios">
 
-        <h5 class="modalFinalizarCompra__titulo">Medio de Pago</h5>
+                        <h5 class="modalFinalizarCompra__titulo">Envios</h5>
 
-        <select class="modalFinalizarCompra__selector" name="envios" id="seleccionPago">
-            <option value="retirar">Efectivo al retirar</option>
-            <option value="enviar">Debito</option>
-            <option value="enviar">Credito - 1 Cuota</option>
-            <option value="enviar">Credito - 3 Cuotas</option>
-        </select>
 
-        <div class="modal__total modal__total__valorEnvio">
-            Envio : $
-            <span class="modal__total__valorEnvio" id="valorEnvio">
-                
-            </span>
+                        <div class="modalFinalizarCompra__selector" name="envios" id="seleccionEnvios">
+                            <button class="btn btn-primary">Retirar por el Local</button>
+                            <button class="btn btn-primary">Envio a domicilio</button>
+                        </div>
 
-        </div>
+                        <section class="modalidadEnvio" id="modalidadEnvio">
+                        
+                    
+                        </section>
 
-        <div class="modal__total">
-            TOTAL : $ 
-            <span class="modal__total__valor" id="valorTotalConEnvio">
-                
-            </span>
-        </div>
+                        <h5 class="modalFinalizarCompra__titulo">Medio de Pago</h5>
 
-    </section>`);
+                        <select class="modalFinalizarCompra__selector" name="envios" id="seleccionPago">
+                            <option value="retirar">Efectivo al retirar</option>
+                            <option value="enviar">Debito</option>
+                            <option value="enviar">Credito - 1 Cuota</option>
+                            <option value="enviar">Credito - 3 Cuotas</option>
+                        </select>
+
+                        <div class="modal__total modal__total__valorEnvio">
+                            Envio : $
+                            <span class="modal__total__valorEnvio" id="valorEnvio">
+                                
+                            </span>
+
+                        </div>
+
+                        <div class="modal__total">
+                            TOTAL : $ 
+                            <span class="modal__total__valor" id="valorTotalConEnvio">
+                                
+                            </span>
+                        </div>
+
+                    </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark " data-dismiss="modal" id="cancelarCompra">CANCELAR</button>
+                        <button type="button" class="btn btn-rosa" data-dismiss="modal" id="finalizarCompra" href="#" data-target="#modalFinalizarCompra">FINALIZAR COMPRA</button>
+                    </div>
+                </div>
+            </div>
+        </div>`);
 };
 
 const retiraPorLocal = () => {
+  $("#modalidadEnvio").empty();
+
   $("#modalidadEnvio").append(` <div class="modalFinalizarCompra__retira">
         
-        <input id="dato1" type="text" name="name" required placeholder="Nombre">
-        <input id="dato2" type="text" name="celular" required placeholder="Telefono">
-        <input id="dato3" type="email" name="email" required placeholder="Email">
+        <input class="infoRetirar" type="text" name="name" required placeholder="Nombre">
+        <input class="infoRetirar" type="text" name="celular" required placeholder="Telefono">
+        <input class="infoRetirar" type="email" name="email" required placeholder="Email">
         </div>`);
 };
 
 const enviarDomicilio = () => {
+  $("#modalidadEnvio").empty();
+
   $("#modalidadEnvio").append(`   <div class="modalFinalizarCompra__enviar">
         
-        <input id="datos1" type="text" name="name" required placeholder="Nombre">
-        <input id="datos2" type="text" name="apellido" required placeholder="Appelido">
-        <input id="datos3" type="email" name="email" required placeholder="Email">
-        <input id="datos4" type="text" name="telefono" required placeholder="Telefono">
-        <input id="datos5" type="text" name="direccion" required placeholder="Direccion">
-        <input id="datos6" type="text" name="ciudad" required placeholder="Ciudad">
-        <input id="datos7" id="cp" type="text" name="cp" required placeholder="Codigo Postal">
+        <input class="infoEnviar" type="text" name="name" required placeholder="Nombre">
+        <input class="infoEnviar" type="text" name="apellido" required placeholder="Appelido">
+        <input class="infoEnviar" type="email" name="email" required placeholder="Email">
+        <input class="infoEnviar" type="text" name="telefono" required placeholder="Telefono">
+        <input class="infoEnviar" type="text" name="direccion" required placeholder="Direccion">
+        <input class="infoEnviar" type="text" name="ciudad" required placeholder="Ciudad">
+        <input class="infoEnviar" id="cp" type="text" name="cp" required placeholder="Codigo Postal">
         </div>`);
 };

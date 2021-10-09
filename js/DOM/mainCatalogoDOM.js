@@ -1,6 +1,7 @@
 $("#main")
   .append(` <h1 class="main__titulo" id="tituloTienda">TIENDA ONLINE</h1>
-<div class="main__productos" id="tienda">
+
+            <div class="main__productos" id="tienda">
 `);
 
 //Crea todas las "tarjetas" de los productos agregandolos un DIV y luego el div ,como hijo al id="tienda"
@@ -8,7 +9,7 @@ const crearCatalogo = () => {
   //  for (const item of catalogo) {     ,
   for (const item of JSON.parse(guardarCatalogoJSON)) {
     $("#tienda").append(` 
-    <!-- Button trigger modal -->
+    <!-- Button trigger modal ZOOM -->
     <div class="main__productos__card " id="${item.id}">
 
     <button type="button" class="btn" data-toggle="modal" data-target="#modalCenter${item.id}">
@@ -23,7 +24,7 @@ const crearCatalogo = () => {
     
     </div>
     
-    <!-- Modal -->
+    <!-- Modal ITEM ZOOM-->
     <div class="modal fade" id="modalCenter${item.id}" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
 
       <div class="modal-dialog modal-dialog-centered" role="document">

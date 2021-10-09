@@ -1,11 +1,16 @@
-$("#loading")
-  .show(500)
-  .delay(1000)
-  .animate({ bottom: "-1000px" }, 2500, () => {
-    $("#loading").remove();
-  });
+const animarLoading = () => {
+  $("#loading")
+    .show(700)
+    .delay(500)
+    .animate({ bottom: "-600px" }, 2500, () => {
+      $("#loading").remove();
+    });
+};
 
-$("#tituloTienda").hide();
-$("#tituloTienda").fadeIn(4000);
-$("#tienda").hide();
-$("#tienda").fadeIn(5000);
+const animarTienda = () => {
+  $("#tituloTienda").hide();
+  $("#tituloTienda").fadeIn(4500);
+
+  $("#tienda").hide();
+  $("#tienda").fadeIn(4500);
+};

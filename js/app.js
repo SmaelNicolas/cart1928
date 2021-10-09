@@ -201,12 +201,7 @@ const cambiosEnEnviar = () => {
 
 const clickFinalizarCompra = (valor) => {
   $("#finalizarCompra").click(() => {
-    let cart = JSON.parse(localStorage.getItem("carrito"));
-    let txt = "";
-    for (let i = 0; i < cart.length; i++) {
-      txt += `${cart[i].cantidad}x ${cart[i].descripcion}  \n`;
-    }
-    console.log(txt);
+    console.log("SIGUE EJECUTANDO OTRO MODAL");
     vaciarCarrito();
   });
 };
@@ -250,7 +245,6 @@ const app = () => {
   iniciarLocalStorage();
   inicializarProductos();
   crearCatalogo();
-
   clickAgregarCarrito();
   clickIconoCarrito();
   clickVaciarCarrito();
@@ -259,5 +253,7 @@ const app = () => {
 };
 
 $(document).ready(function () {
+  animarLoading();
+  animarTienda();
   app();
 });
