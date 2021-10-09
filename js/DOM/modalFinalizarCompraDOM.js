@@ -17,8 +17,8 @@ const crearModalFinalizarCompra = () => {
 
 
                         <div class="modalFinalizarCompra__selector" name="envios" id="seleccionEnvios">
-                            <button class="btn btn-primary">Retirar por el Local</button>
-                            <button class="btn btn-primary">Envio a domicilio</button>
+                            <button id="clickRetiro" class="btn btn-primary">Retirar por el Local</button>
+                            <button id="clickEnvio" class="btn btn-primary">Envio a domicilio</button>
                         </div>
 
                         <section class="modalidadEnvio" id="modalidadEnvio">
@@ -64,7 +64,8 @@ const crearModalFinalizarCompra = () => {
 const retiraPorLocal = () => {
   $("#modalidadEnvio").empty();
 
-  $("#modalidadEnvio").append(` <div class="modalFinalizarCompra__retira">
+  $("#modalidadEnvio")
+    .append(` <div class="modalFinalizarCompra__retira" id="retiraLocal">
         
         <input class="infoRetirar" type="text" name="name" required placeholder="Nombre">
         <input class="infoRetirar" type="text" name="celular" required placeholder="Telefono">
@@ -75,7 +76,8 @@ const retiraPorLocal = () => {
 const enviarDomicilio = () => {
   $("#modalidadEnvio").empty();
 
-  $("#modalidadEnvio").append(`   <div class="modalFinalizarCompra__enviar">
+  $("#modalidadEnvio")
+    .append(`   <div class="modalFinalizarCompra__enviar" id="paraEnvio">
         
         <input class="infoEnviar" type="text" name="name" required placeholder="Nombre">
         <input class="infoEnviar" type="text" name="apellido" required placeholder="Appelido">

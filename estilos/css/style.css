@@ -191,9 +191,12 @@ body {
   .modalFinalizarCompra__titulo {
     align-self: flex-start; }
   .modalFinalizarCompra__selector {
+    display: flex;
+    flex-direction: row;
     margin: 0 auto;
     margin-bottom: 20px;
-    width: 60%; }
+    justify-content: space-between;
+    width: 80%; }
   .modalFinalizarCompra__retira {
     display: flex;
     flex-direction: column;

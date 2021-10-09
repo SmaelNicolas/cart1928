@@ -171,32 +171,26 @@ const clickContinuar = () => {
 };
 
 const cambiosEnEnviar = () => {
-  $("#seleccionEnvios").change(() => {
-    let precioTotalConEnvio = precioTotal;
+  let precioTotalConEnvio = precioTotal;
+
+  $("#clickEnvio").click(() => {
     $("#modalidadEnvio").empty();
-
-    if ($("#seleccionEnvios").val() == "enviar") {
-      precioTotalConEnvio += 400;
-      enviarDomicilio();
-      $("#finalizarCompra").prop("disabled", false);
-      $("#valorEnvio").html(400);
-
-      clickFinalizarCompra(400);
-    } else {
-      if ($("#seleccionEnvios").val() == "retirar") {
-        retiraPorLocal();
-        $("#finalizarCompra").prop("disabled", false);
-        $("#valorEnvio").html(0);
-
-        clickFinalizarCompra(0);
-      } else {
-        $("#finalizarCompra").prop("disabled", true);
-      }
-    }
-
-    localStorage.setItem("precioTotalConEnvio", precioTotalConEnvio);
-    $("#valorTotalConEnvio").html(precioTotalConEnvio);
+    precioTotalConEnvio += 400;
+    enviarDomicilio();
+    animarEnvioDomicilio();
+    $("#finalizarCompra").prop("disabled", false);
+    $("#valorEnvio").html(400);
   });
+  $("#clickRetiro").click(() => {
+    retiraPorLocal();
+    animarRetiraLocal();
+    $("#finalizarCompra").prop("disabled", false);
+    $("#valorEnvio").html(0);
+  });
+
+  clickFinalizarCompra();
+  localStorage.setItem("precioTotalConEnvio", precioTotalConEnvio);
+  $("#valorTotalConEnvio").html(precioTotalConEnvio);
 };
 
 const clickFinalizarCompra = (valor) => {
