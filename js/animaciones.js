@@ -15,12 +15,7 @@ const animarTienda = () => {
   $("#tienda").fadeIn(4500);
 };
 
-const animarEnvioDomicilio = () => {
-  $("#paraEnvio").hide();
-  $("#paraEnvio").slideDown(500);
-};
-
-const animarRetiraLocal = () => {
-  $("#retiraLocal").hide();
-  $("#retiraLocal").slideDown(500);
+const animarDatosContacto = () => {
+  $("#datosContacto").hide();
+  $("#datosContacto").fadeIn(800);
 };

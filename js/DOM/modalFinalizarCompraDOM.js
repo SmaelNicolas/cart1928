@@ -54,31 +54,19 @@ const crearModalFinalizarCompra = () => {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark " data-dismiss="modal" id="cancelarCompra">CANCELAR</button>
-                        <button type="button" class="btn btn-rosa" data-dismiss="modal" id="finalizarCompra" href="#" data-target="#modalFinalizarCompra">FINALIZAR COMPRA</button>
+                        <button type="button" class="btn btn-rosa" data-dismiss="modal" id="finalizarCompra" href="#" data-target="#modalFinalizarCompra" type="submit">FINALIZAR COMPRA</button>
                     </div>
                 </div>
             </div>
         </div>`);
 };
 
-const retiraPorLocal = () => {
+const datosContacto = () => {
   $("#modalidadEnvio").empty();
 
-  $("#modalidadEnvio")
-    .append(` <div class="modalFinalizarCompra__retira" id="retiraLocal">
-        
-        <input class="infoRetirar" type="text" name="name" required placeholder="Nombre">
-        <input class="infoRetirar" type="text" name="celular" required placeholder="Telefono">
-        <input class="infoRetirar" type="email" name="email" required placeholder="Email">
-        </div>`);
-};
-
-const enviarDomicilio = () => {
-  $("#modalidadEnvio").empty();
-
-  $("#modalidadEnvio")
-    .append(`   <div class="modalFinalizarCompra__enviar" id="paraEnvio">
-        
+  $("#modalidadEnvio").append(` 
+  
+    <div class="modalFinalizarCompra__enviar" id="datosContacto">
         <input class="infoEnviar" type="text" name="name" required placeholder="Nombre">
         <input class="infoEnviar" type="text" name="apellido" required placeholder="Appelido">
         <input class="infoEnviar" type="email" name="email" required placeholder="Email">
@@ -86,5 +74,5 @@ const enviarDomicilio = () => {
         <input class="infoEnviar" type="text" name="direccion" required placeholder="Direccion">
         <input class="infoEnviar" type="text" name="ciudad" required placeholder="Ciudad">
         <input class="infoEnviar" id="cp" type="text" name="cp" required placeholder="Codigo Postal">
-        </div>`);
+    </div>`);
 };

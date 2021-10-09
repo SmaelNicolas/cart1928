@@ -142,8 +142,6 @@ const clickModificarCantidad = (item) => {
         precioTotal -= (cantAnterior - cantNueva) * item.precio;
       }
 
-      console.log(cantEnCarrito);
-
       let producto = carrito.find((producto) => producto == item);
 
       producto.cantidad = cantNueva;
@@ -161,6 +159,8 @@ const clickModificarCantidad = (item) => {
 const clickContinuar = () => {
   $("#continuarCompra").click(() => {
     crearModalFinalizarCompra();
+    $("#modalidadEnvio").empty();
+
     $("#finalizarCompra").prop("disabled", true);
 
     $("#valorEnvio").html(0);
@@ -171,32 +171,47 @@ const clickContinuar = () => {
 };
 
 const cambiosEnEnviar = () => {
-  let precioTotalConEnvio = precioTotal;
-
   $("#clickEnvio").click(() => {
     $("#modalidadEnvio").empty();
-    precioTotalConEnvio += 400;
-    enviarDomicilio();
-    animarEnvioDomicilio();
-    $("#finalizarCompra").prop("disabled", false);
+    datosContacto();
+    animarDatosContacto();
     $("#valorEnvio").html(400);
-  });
-  $("#clickRetiro").click(() => {
-    retiraPorLocal();
-    animarRetiraLocal();
+    $("#valorTotalConEnvio").html(precioTotal + 400);
+    localStorage.setItem("precioTotalConEnvio", precioTotal + 400);
+    localStorage.setItem("envio", 400);
+
     $("#finalizarCompra").prop("disabled", false);
+  });
+
+  $("#clickRetiro").click(() => {
+    datosContacto();
+    animarDatosContacto();
     $("#valorEnvio").html(0);
+    $("#valorTotalConEnvio").html(precioTotal);
+    localStorage.setItem("precioTotalConEnvio", precioTotal);
+    localStorage.setItem("envio", 0);
+
+    $("#finalizarCompra").prop("disabled", false);
   });
 
   clickFinalizarCompra();
-  localStorage.setItem("precioTotalConEnvio", precioTotalConEnvio);
-  $("#valorTotalConEnvio").html(precioTotalConEnvio);
 };
 
-const clickFinalizarCompra = (valor) => {
+const clickFinalizarCompra = () => {
+  let txt = "";
   $("#finalizarCompra").click(() => {
-    console.log("SIGUE EJECUTANDO OTRO MODAL");
-    vaciarCarrito();
+    if ($(".infoEnviar").val() != "") {
+      for (const i of carrito) {
+        txt += `${i.cantidad} x ${i.categoria} ${i.descripcion} = ${
+          i.precio * i.cantidad
+        } \n`;
+      }
+      txt += `Total Con Envio: $${localStorage.getItem("precioTotalConEnvio")}`;
+      console.log(txt);
+      vaciarCarrito();
+    } else {
+      alert("COMPLETE LOS DATOS");
+    }
   });
 };
 
@@ -243,6 +258,7 @@ const app = () => {
   clickIconoCarrito();
   clickVaciarCarrito();
   clickContinuar();
+
   mostrarCatalogoJSON();
 };
 
