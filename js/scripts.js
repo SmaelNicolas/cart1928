@@ -1,9 +1,0 @@
-$("#body").append(` <script src="./js/DOM/headerDOM.js"></script>
-    <script src="./js/DOM/mainCatalogoDOM.js"></script>
-    <script src="./js/DOM/carritoSeccionDOM.js"></script>
-    <script src="./js/DOM/modalCarritoDOM.js"></script>
-    <script src="./js/DOM/modalFinalizarCompraDOM.js"></script>
-    <script src="./js/DOM/footerDOM.js"></script>
-    <script src="./js/crearProductos.js"></script>
-    <script src="./js/animaciones.js"></script>
-    <script src="./js/APP.js"></script>`);
