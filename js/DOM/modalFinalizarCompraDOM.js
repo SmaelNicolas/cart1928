@@ -17,8 +17,8 @@ const crearModalFinalizarCompra = () => {
 
 
                         <div class="modalFinalizarCompra__selector" name="envios" id="seleccionEnvios">
-                            <button id="clickRetiro" class="btn btn-primary">Retirar por el Local</button>
-                            <button id="clickEnvio" class="btn btn-primary">Envio a domicilio</button>
+                            <button id="clickRetiro" class="btn btn-rosa">Retirar por el Local</button>
+                            <button id="clickEnvio" class="btn btn-rosa">Envio a domicilio</button>
                         </div>
 
                         <section class="modalidadEnvio" id="modalidadEnvio">
