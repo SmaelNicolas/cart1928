@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "categoria": "Remera",
+    "descripcion": "Talle XXL manga corta estampada color azul",
+    "precio": 1240,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 2,
+    "categoria": "Jean",
+    "descripcion": "Talle 50 tipo Chupin color claro",
+    "precio": 3600,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 3,
+    "categoria": "Sweater",
+    "descripcion": "Talle XL de hilo color negro",
+    "precio": 2700,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 4,
+    "categoria": "Jean",
+    "descripcion": "Talle 52 recto color oscuro",
+    "precio": 3600,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 5,
+    "categoria": "Sweater",
+    "descripcion": "Talle XL de lanilla color negro",
+    "precio": 2700,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 6,
+    "categoria": "Accesorio",
+    "descripcion": "Anillo de Oro grabado a pedido",
+    "precio": 4300,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 7,
+    "categoria": "Accesorio",
+    "descripcion": "Cadenita de Acero Quirurgico con medalla",
+    "precio": 1250,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 8,
+    "categoria": "Accesorio",
+    "descripcion": "Pulsera de plata con inicial",
+    "precio": 1500,
+    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "cantidad": 1
+  }
+]

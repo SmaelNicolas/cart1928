@@ -4,7 +4,7 @@ let carrito; // variable para guardar carrito en localStorage
 let cantEnCarrito; //variable para guardar cant en el carrito en localStorage
 let precioTotal; //variable para guardar el total de los productos
 
-let guardarCatalogoJSON; // variable para el  array catalogo en formato JSON
+const URLJSON = "../data/productos.json";
 
 //FUNCIONES
 
@@ -27,17 +27,25 @@ const iniciarLocalStorage = () => {
 
 //activa los botones de todos los id del catalogo y del modal.
 const clickAgregarCarrito = () => {
-  for (let i = 1; i < id; i++) {
-    $(`#botonComprar${i}`).click(() => {
-      estaEnCarrito(i);
-      mensajeAgregado();
-    });
+  $.ajax({
+    method: "GET",
+    url: URLJSON,
+    success: (respuesta) => {
+      let misDatos = respuesta;
 
-    $(`#botonComprarModal${i}`).click(() => {
-      estaEnCarrito(i);
-      mensajeAgregado();
-    });
-  }
+      for (let i = 1; i < misDatos.length; i++) {
+        $(`#botonComprar${i}`).click(() => {
+          estaEnCarrito(i);
+          mensajeAgregado();
+        });
+
+        $(`#botonComprarModal${i}`).click(() => {
+          estaEnCarrito(i);
+          mensajeAgregado();
+        });
+      }
+    },
+  });
 };
 
 //crea un mensaje para corroborar que se agrego al carrito
@@ -244,15 +252,20 @@ const limpiarListaModal = () => {
 
 //muestra por consola los JSON y el localStorage
 const mostrarCatalogoJSON = () => {
-  console.log("ITEMS EN CATALOGO JSON");
-  console.log("");
-  console.log(guardarCatalogoJSON);
+  $.getJSON(URLJSON, (respuesta, estado) => {
+    if (estado == "success") {
+      let misDatos = respuesta;
+      console.log("");
+      console.log("productos.json");
+      console.log(misDatos);
+    }
+  });
 };
 
 //llama a todas las funciones
 const app = () => {
   iniciarLocalStorage();
-  inicializarProductos();
+  // inicializarProductos();
   crearCatalogo();
   clickAgregarCarrito();
   clickIconoCarrito();
