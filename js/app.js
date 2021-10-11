@@ -4,7 +4,7 @@ let carrito; // variable para guardar carrito en localStorage
 let cantEnCarrito; //variable para guardar cant en el carrito en localStorage
 let precioTotal; //variable para guardar el total de los productos
 
-const URLJSON = "../data/productos.json";
+const URLJSON = "./data/productos.json";
 
 //FUNCIONES
 
