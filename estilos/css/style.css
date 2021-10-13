@@ -364,31 +364,25 @@ body {
     letter-spacing: 3px;
     font-size: 70px;
     padding-top: 50px; }
-  .main__selectores {
-    width: 100%;
-    height: auto;
-    gap: 10px;
+  .main__botones {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-weight: 100;
-    margin: 0 auto;
-    padding: 100px 0px 0px 0px; }
-    .main__selectores__select {
-      width: 250px;
-      margin: 0 auto;
-      font-weight: 100;
-      background-color: rgba(0, 0, 0, 0.664);
-      color: white;
-      letter-spacing: 1px;
-      border: none; }
-      .main__selectores__select__opt {
-        font-weight: 100; }
+    flex-wrap: wrap;
+    padding-top: 50px;
+    gap: 5px; }
+    .main__botones__click {
+      width: 100px;
+      margin-bottom: 15px; }
+      .main__botones__click:hover {
+        transition: 0.4s linear;
+        background-color: black;
+        color: white; }
   .main__productos {
     width: 100%;
     height: auto;
-    padding: 100px 0;
+    padding: 50px 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 1rem; }

@@ -1,7 +1,16 @@
 $("#main")
   .append(` <h1 class="main__titulo" id="tituloTienda">TIENDA ONLINE</h1>
 
+            <div class="main__botones">
+                      <button class="btn main__botones__click btn-rosa" id="todos">Todos</button>
+                      <button class="btn main__botones__click btn-rosa" id="soloRemeras">Remeras</button>
+                      <button class="btn main__botones__click btn-rosa" id="soloJeans">Jeans</button>
+                      <button class="btn main__botones__click btn-rosa" id="soloSweaters">Sweaters</button>
+                      <button class="btn main__botones__click btn-rosa" id="soloAccesorios">Accesorios</button>
+            </div>
+
             <div class="main__productos" id="tienda">
+
 `);
 
 //Crea todas las "tarjetas" de los productos agregandolos un DIV y luego el div ,como hijo al id="tienda"
