@@ -14,8 +14,13 @@ const animarTitulo = () => {
 
 const animarTienda = () => {
   $("#tienda").hide();
+
   $("#tienda").fadeIn(4500);
 };
+
+// const animarLoadingTienda = () => {
+//   $("#loadingTienda").fadeOut(9000);
+// };
 
 const animarDatosContacto = () => {
   $("#datosContacto").hide();

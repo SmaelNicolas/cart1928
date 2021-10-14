@@ -9,6 +9,7 @@ $("#main").append(` <h1 class="main__titulo" id="tituloTienda">SHOP</h1>
             </div>
 
             <div class="main__productos" id="tienda">
+            <div class="loadingTienda" id="loadingTienda"></div>
             
            
 

@@ -28,7 +28,8 @@ const iniciarLocalStorage = () => {
 const clickMostrarTodos = () => {
   $(`#botonTodos`).click(() => {
     $("#tienda").empty();
-    crearCatalogo("Todos");
+    crearCatalogo();
+    // animarLoadingTienda();
   });
 };
 
@@ -36,6 +37,7 @@ const clickMostrarRemeras = () => {
   $(`#soloRemeras`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Remera");
+    // animarLoadingTienda();
   });
 };
 
@@ -43,6 +45,7 @@ const clickMostrarJeans = () => {
   $(`#soloJeans`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Jean");
+    // animarLoadingTienda();
   });
 };
 
@@ -50,6 +53,7 @@ const clickMostrarSweaters = () => {
   $(`#soloSweaters`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Sweater");
+    // animarLoadingTienda();
   });
 };
 
@@ -57,6 +61,7 @@ const clickMostrarAccesorios = () => {
   $(`#soloAccesorios`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Accesorio");
+    // animarLoadingTienda();
   });
 };
 
