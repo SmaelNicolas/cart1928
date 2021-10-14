@@ -14,7 +14,7 @@ $("#footer").append(`
             </p>
 
             <strong class="footer__datos__texto footer__datos--size">
-                Envios a todo el pais
+                envios a todo el pais
             </strong>
 
         </section>

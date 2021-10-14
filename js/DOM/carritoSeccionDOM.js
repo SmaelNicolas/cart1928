@@ -20,7 +20,7 @@ $("#carritoSeccion").append(`   <section class="carrito" id="carrito">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark " data-dismiss="modal" id="vaciarCarrito">Vaciar
                             Carrito</button>
-                        <button type="button" class="btn btn-rosa" data-dismiss="modal" id="continuarCompra" disabled data-toggle="modal" data-target="#modalFinalizarCompra">CONTINUAR</button>
+                        <button type="button" class="btn btn__estilo" data-dismiss="modal" id="continuarCompra" disabled data-toggle="modal" data-target="#modalFinalizarCompra">CONTINUAR</button>
                     </div>
                 </div>
             </div>

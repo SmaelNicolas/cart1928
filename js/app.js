@@ -95,7 +95,7 @@ const clickAgregarCarrito = () => {
 const mensajeAgregado = () => {
   $("#contenedorMensajeAgregado").append(
     `<div class="confirmacion">
-        <p>Agregado al Carrito<p>
+        <p>agregado al carrito<p>
     </div>`
   );
 };

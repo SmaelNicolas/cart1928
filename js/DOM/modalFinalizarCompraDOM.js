@@ -13,12 +13,12 @@ const crearModalFinalizarCompra = () => {
                     <div class="modal-body" id="bodyModalFinalizar">
                 <section class="modalFinalizarCompra" id="listaEnvios">
 
-                        <h5 class="modalFinalizarCompra__titulo">Envios</h5>
+                        <h5 class="modalFinalizarCompra__titulo">envios</h5>
 
 
                         <div class="modalFinalizarCompra__selector" name="envios" id="seleccionEnvios">
-                            <button id="clickRetiro" class="btn btn-rosa">Retirar por el Local</button>
-                            <button id="clickEnvio" class="btn btn-rosa">Envio a domicilio</button>
+                            <button id="clickRetiro" class="btn btn-rosa">retirar por el Local</button>
+                            <button id="clickEnvio" class="btn btn-rosa">envio a domicilio</button>
                         </div>
 
                         <section class="modalidadEnvio" id="modalidadEnvio">
@@ -29,10 +29,10 @@ const crearModalFinalizarCompra = () => {
                         <h5 class="modalFinalizarCompra__titulo">Medio de Pago</h5>
 
                         <select class="modalFinalizarCompra__selector" name="envios" id="seleccionPago">
-                            <option value="retirar">Efectivo al retirar</option>
-                            <option value="enviar">Debito</option>
-                            <option value="enviar">Credito - 1 Cuota</option>
-                            <option value="enviar">Credito - 3 Cuotas</option>
+                            <option value="retirar">efectivo al retirar</option>
+                            <option value="enviar">debito</option>
+                            <option value="enviar">credito - 1 Cuota</option>
+                            <option value="enviar">credito - 3 Cuotas</option>
                         </select>
 
                         <div class="modal__total modal__total__valorEnvio">
@@ -54,7 +54,7 @@ const crearModalFinalizarCompra = () => {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark " data-dismiss="modal" id="cancelarCompra">CANCELAR</button>
-                        <button type="button" class="btn btn-rosa" data-dismiss="modal" id="finalizarCompra" href="#" data-target="#modalFinalizarCompra" type="submit">FINALIZAR COMPRA</button>
+                        <button type="button" class="btn btn__estilo" data-dismiss="modal" id="finalizarCompra" href="#" data-target="#modalFinalizarCompra" type="submit">fINALIZAR COMPRA</button>
                     </div>
                 </div>
             </div>

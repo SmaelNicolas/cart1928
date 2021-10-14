@@ -1,12 +1,16 @@
 /* Animacion PULSACION*/
 /* Animacion ROTACION DE TEXTO */
 @font-face {
-  font-family: Biko;
-  src: url(../.././estilos/biko_font/Biko_Regular.otf); }
+  font-family: Adenium;
+  src: url(../.././estilos/adenium/Adenium.otf); }
 
 @font-face {
-  font-family: BikoBold;
-  src: url(../.././estilos/biko_font/Biko_Bold.otf); }
+  font-family: Equinox;
+  src: url(../.././estilos/equinox/EquinoxRegular.otf); }
+
+@font-face {
+  font-family: EquinoxBold;
+  src: url(../.././estilos/equinox/EquinoxBold.otf); }
 
 * {
   margin: 0;
@@ -14,7 +18,7 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
-  font-family: Biko;
+  font-family: EquinoxBold;
   text-align: center;
   list-style-type: none;
   cursor: default; }
@@ -45,7 +49,8 @@ body {
   width: 200px;
   height: 40px;
   position: fixed;
-  background-color: rgba(190, 153, 176, 0.671);
+  background-color: black;
+  color: white;
   z-index: 100000;
   top: 5%;
   text-align: center;
@@ -181,8 +186,7 @@ body {
   .modal__total:hover {
     cursor: default; }
 
-.btn-rosa {
-  background-color: rgba(190, 153, 176, 0.671);
+.btn__estilo {
   border: 1px solid black; }
 
 .modalFinalizarCompra {
@@ -363,7 +367,8 @@ body {
     text-align: center;
     letter-spacing: 3px;
     font-size: 70px;
-    padding-top: 50px; }
+    padding-top: 50px;
+    font-family: adenium; }
   .main__botones {
     display: flex;
     flex-direction: row;
@@ -373,8 +378,10 @@ body {
     padding-top: 50px;
     gap: 5px; }
     .main__botones__click {
-      width: 100px;
-      margin-bottom: 15px; }
+      width: 120px;
+      margin-bottom: 15px;
+      text-align: center;
+      border: 1px solid black; }
       .main__botones__click:hover {
         transition: 0.4s linear;
         background-color: black;
@@ -414,7 +421,7 @@ body {
         height: 25px;
         margin: 0 auto;
         cursor: pointer;
-        border: 1px solid rgba(190, 153, 176, 0.671);
+        border: 1px solid #ffcfdb;
         background-color: black;
         color: white;
         text-decoration: none; }

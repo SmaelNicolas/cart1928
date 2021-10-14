@@ -1,12 +1,11 @@
-$("#main")
-  .append(` <h1 class="main__titulo" id="tituloTienda">TIENDA ONLINE</h1>
+$("#main").append(` <h1 class="main__titulo" id="tituloTienda">SHOP</h1>
 
             <div class="main__botones">
-                      <button class="btn main__botones__click btn-rosa" id="botonTodos">Todos</button>
-                      <button class="btn main__botones__click btn-rosa" id="soloRemeras">Remeras</button>
-                      <button class="btn main__botones__click btn-rosa" id="soloJeans">Jeans</button>
-                      <button class="btn main__botones__click btn-rosa" id="soloSweaters">Sweaters</button>
-                      <button class="btn main__botones__click btn-rosa" id="soloAccesorios">Accesorios</button>
+                      <button class="btn main__botones__click" id="botonTodos">Todos</button>
+                      <button class="btn main__botones__click" id="soloRemeras">Remeras</button>
+                      <button class="btn main__botones__click" id="soloJeans">Jeans</button>
+                      <button class="btn main__botones__click" id="soloSweaters">Sweaters</button>
+                      <button class="btn main__botones__click" id="soloAccesorios">accesorios</button>
             </div>
 
             <div class="main__productos" id="tienda">
@@ -37,7 +36,8 @@ const crearCatalogo = (categoria) => {
 
           <p class="main__productos__card__precio">$ ${item.precio}</p>
 
-          <button class="main__productos__card__button" type="button" id="botonComprar${item.id}">Agregar al Carrito</button>
+          <button class="main__productos__card__button" type="button" id="botonComprar${item.id}">agregar  <i
+                    class="fas fa-shopping-cart carrito__imagen" id="iconoCarrito"></i></button>
           
           </div>
           
@@ -60,7 +60,7 @@ const crearCatalogo = (categoria) => {
 
                 <div class="modal-footer"> 
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-                <button type="button" class="btn btn-dark" id="botonComprarModal${item.id}">Agregar al carrito</button>
+                <button type="button" class="btn btn-dark" id="botonComprarModal${item.id}">al carrito</button>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ const crearCatalogo = (categoria) => {
 
           <p class="main__productos__card__precio">$ ${item.precio}</p>
 
-          <button class="main__productos__card__button" type="button" id="botonComprar${item.id}">Agregar al Carrito</button>
+          <button class="main__productos__card__button" type="button" id="botonComprar${item.id}">al Carrito</button>
           
           </div>
           
@@ -103,7 +103,7 @@ const crearCatalogo = (categoria) => {
 
                 <div class="modal-footer"> 
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-                <button type="button" class="btn btn-dark" id="botonComprarModal${item.id}">Agregar al carrito</button>
+                <button type="button" class="btn btn-dark" id="botonComprarModal${item.id}">al carrito</button>
                 </div>
               </div>
             </div>

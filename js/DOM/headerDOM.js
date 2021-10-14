@@ -34,7 +34,7 @@ $("#header").append(`
 
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/accesorios.html">Accesorios</a>
+                    href="https://1928showroom.com.ar/html/accesorios.html">accesorios</a>
             </li>
 
             <li class="header__ul__li">
