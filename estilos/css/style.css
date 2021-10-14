@@ -203,7 +203,7 @@ body {
     margin: 0 auto;
     margin-bottom: 20px;
     justify-content: space-between;
-    width: 80%; }
+    width: 100%; }
   .modalFinalizarCompra__retira {
     display: flex;
     flex-direction: column;

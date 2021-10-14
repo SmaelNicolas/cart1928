@@ -29,6 +29,8 @@ const clickMostrarTodos = () => {
   $(`#botonTodos`).click(() => {
     $("#tienda").empty();
     crearCatalogo();
+    clickAgregarCarrito();
+
     // animarLoadingTienda();
   });
 };
@@ -37,6 +39,8 @@ const clickMostrarRemeras = () => {
   $(`#soloRemeras`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Remera");
+    clickAgregarCarrito();
+
     // animarLoadingTienda();
   });
 };
@@ -45,6 +49,8 @@ const clickMostrarJeans = () => {
   $(`#soloJeans`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Jean");
+    clickAgregarCarrito();
+
     // animarLoadingTienda();
   });
 };
@@ -53,6 +59,8 @@ const clickMostrarSweaters = () => {
   $(`#soloSweaters`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Sweater");
+    clickAgregarCarrito();
+
     // animarLoadingTienda();
   });
 };
@@ -61,6 +69,7 @@ const clickMostrarAccesorios = () => {
   $(`#soloAccesorios`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Accesorio");
+    clickAgregarCarrito();
     // animarLoadingTienda();
   });
 };
@@ -81,7 +90,7 @@ const clickAgregarCarrito = () => {
     success: (respuesta) => {
       let misDatos = respuesta;
 
-      for (let i = 1; i < misDatos.length; i++) {
+      for (let i = 1; i <= misDatos.length; i++) {
         $(`#botonComprar${i}`).click(() => {
           estaEnCarrito(i);
           mensajeAgregado();
@@ -231,6 +240,8 @@ const cambiosEnEnviar = () => {
     $("#modalidadEnvio").empty();
     datosContacto();
     animarDatosContacto();
+    clickFinalizarCompra();
+
     $("#valorEnvio").html(400);
     $("#valorTotalConEnvio").html(precioTotal + 400);
     localStorage.setItem("precioTotalConEnvio", precioTotal + 400);
@@ -242,6 +253,8 @@ const cambiosEnEnviar = () => {
   $("#clickRetiro").click(() => {
     datosContacto();
     animarDatosContacto();
+    clickFinalizarCompra();
+
     $("#valorEnvio").html(0);
     $("#valorTotalConEnvio").html(precioTotal);
     localStorage.setItem("precioTotalConEnvio", precioTotal);
@@ -249,21 +262,24 @@ const cambiosEnEnviar = () => {
 
     $("#finalizarCompra").prop("disabled", false);
   });
-
-  clickFinalizarCompra();
 };
 
 const clickFinalizarCompra = () => {
-  let txt = "";
+  console.log("HOLA");
   $("#finalizarCompra").click(() => {
+    let txt = "";
+
     if ($(".infoEnviar").val() != "") {
       for (const i of carrito) {
         txt += `${i.cantidad} x ${i.categoria} ${i.descripcion} = ${
           i.precio * i.cantidad
         } \n`;
       }
+
       txt += `Total Con Envio: $${localStorage.getItem("precioTotalConEnvio")}`;
+
       console.log(txt);
+
       vaciarCarrito();
     } else {
       alert("COMPLETE LOS DATOS");
@@ -296,6 +312,9 @@ const vaciarCarrito = () => {
 //remueve todos los hijos creados cada vez que se agrega un item de distinto id al carrito y actualiza la cantidad de productos en carrito
 const limpiarListaModal = () => {
   $("#listaDelCarrito").empty();
+};
+const limpiarListaModalContinuar = () => {
+  $("#modalFinalizarCompra").empty();
 };
 
 //muestra por consola los JSON y el localStorage
