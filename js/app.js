@@ -25,6 +25,54 @@ const iniciarLocalStorage = () => {
   $("#itemsCarrito").text(cantEnCarrito);
 };
 
+const clickMostrarTodos = () => {
+  $(`#botonTodos`).click(() => {
+    $("#tienda").empty();
+    crearCatalogo("Todos");
+    animarTienda();
+  });
+};
+
+const clickMostrarRemeras = () => {
+  $(`#soloRemeras`).click(() => {
+    $("#tienda").empty();
+    crearCatalogo("Remera");
+    animarTienda();
+  });
+};
+
+const clickMostrarJeans = () => {
+  $(`#soloJeans`).click(() => {
+    $("#tienda").empty();
+    crearCatalogo("Jean");
+    animarTienda();
+  });
+};
+
+const clickMostrarSweaters = () => {
+  $(`#soloSweaters`).click(() => {
+    $("#tienda").empty();
+    crearCatalogo("Sweater");
+    animarTienda();
+  });
+};
+
+const clickMostrarAccesorios = () => {
+  $(`#soloAccesorios`).click(() => {
+    $("#tienda").empty();
+    crearCatalogo("Accesorio");
+    animarTienda();
+  });
+};
+
+const botonesSeleccion = () => {
+  clickMostrarTodos();
+  clickMostrarRemeras();
+  clickMostrarJeans();
+  clickMostrarSweaters();
+  clickMostrarAccesorios();
+};
+
 //activa los botones de todos los id del catalogo y del modal.
 const clickAgregarCarrito = () => {
   $.ajax({
@@ -267,6 +315,7 @@ const app = () => {
   iniciarLocalStorage();
   // inicializarProductos();
   crearCatalogo();
+  botonesSeleccion();
   clickAgregarCarrito();
   clickIconoCarrito();
   clickVaciarCarrito();
@@ -277,6 +326,7 @@ const app = () => {
 
 $(document).ready(function () {
   animarLoading();
+  animarTitulo();
   animarTienda();
   app();
 });

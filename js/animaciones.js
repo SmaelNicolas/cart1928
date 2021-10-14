@@ -7,10 +7,12 @@ const animarLoading = () => {
     });
 };
 
-const animarTienda = () => {
+const animarTitulo = () => {
   $("#tituloTienda").hide();
   $("#tituloTienda").fadeIn(4500);
+};
 
+const animarTienda = () => {
   $("#tienda").hide();
   $("#tienda").fadeIn(4500);
 };
