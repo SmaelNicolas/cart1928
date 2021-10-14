@@ -29,7 +29,6 @@ const clickMostrarTodos = () => {
   $(`#botonTodos`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Todos");
-    animarTienda();
   });
 };
 
@@ -37,7 +36,6 @@ const clickMostrarRemeras = () => {
   $(`#soloRemeras`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Remera");
-    animarTienda();
   });
 };
 
@@ -45,7 +43,6 @@ const clickMostrarJeans = () => {
   $(`#soloJeans`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Jean");
-    animarTienda();
   });
 };
 
@@ -53,7 +50,6 @@ const clickMostrarSweaters = () => {
   $(`#soloSweaters`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Sweater");
-    animarTienda();
   });
 };
 
@@ -61,7 +57,6 @@ const clickMostrarAccesorios = () => {
   $(`#soloAccesorios`).click(() => {
     $("#tienda").empty();
     crearCatalogo("Accesorio");
-    animarTienda();
   });
 };
 

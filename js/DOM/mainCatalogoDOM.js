@@ -10,7 +10,8 @@ $("#main")
             </div>
 
             <div class="main__productos" id="tienda">
-            <img class="main__gif" src="./img/loading.gif" alt="">
+            
+           
 
 
 `);
