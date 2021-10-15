@@ -24,11 +24,8 @@ const animarLoadingTienda = () => {
 
   $("#loadingTienda").fadeIn(1);
   $("#loadingTienda").fadeOut(1000);
-
-  // show(1700).delay(1500).remove();
 };
 
 const animarDatosContacto = () => {
-  $("#datosContacto").hide();
-  $("#datosContacto").fadeIn(800);
+  $("#datosContacto").fadeIn(1300);
 };

@@ -1,15 +1,18 @@
+//------------------------------------------------------------------------------VARIABLES
+
 let id = 1; // id para diferenciar todos los productos
-let catalogo = []; //array para mostrar lso productos en la tienda
+let catalogo = []; //array para guardar los productos de productos.json
 let carrito; // variable para guardar carrito en localStorage
 let cantEnCarrito; //variable para guardar cant en el carrito en localStorage
 let precioTotal; //variable para guardar el total de los productos
-let txt;
+let txt; // variable para guardar el texto a mostrar al finalizar compra
+const URLJSON = "./data/productos.json"; //url de .json donde se almacenan los productos a mostrar
 
-const URLJSON = "./data/productos.json";
+//------------------------------------------------------------------------------FIN VARIABLES
 
-//FUNCIONES
+//------------------------------------------------------------------------------LOCAL STORAGE
 
-//busca en el LS si hay guardado, si hay lo utiliza, si no hay inicializa. Agrega la etiqueta sobre el carrito
+//busca en el LocalStorage si existen datos guardado, si hay lo utiliza, si no hay los inicializa. Agrega la etiqueta sobre el carrito
 const iniciarLocalStorage = () => {
   localStorage.getItem("carrito") == undefined
     ? (carrito = [])
@@ -26,60 +29,69 @@ const iniciarLocalStorage = () => {
   $("#itemsCarrito").text(cantEnCarrito);
 };
 
+//actualiza el localStorage y la entiqueta cant en carrito
+const actualizarLocalStorage = () => {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  localStorage.setItem("cantEnCarrito", JSON.stringify(cantEnCarrito));
+  localStorage.setItem("precioTotal", JSON.stringify(precioTotal));
+  $("#itemsCarrito").text(cantEnCarrito);
+};
+
+//------------------------------------------------------------------------------FIN LOCAL STORAGE
+
+//------------------------------------------------------------------------------ BOTONES
+
+// Muestra todos los productos de productos.json (undefined)
 const clickMostrarTodos = () => {
   $(`#botonTodos`).click(() => {
-    $("#tienda").empty();
-    animarLoadingTienda();
-    crearCatalogo();
-    clickAgregarCarrito();
+    $("#tienda").empty(); //Elimina el contenido de la seccion de tienda
+    animarLoadingTienda(); //Agrega animacion de "Loading..."
+    crearProductosEnCatalogoDOM(); //crea el catalogo de productos que coincidan con el parametro
+    clickAgregarCarrito(); //activa todos los botones agregar al carrito
   });
 };
 
+// Muestra todas las Remeras de productos.json con categoria ("Remera")
 const clickMostrarRemeras = () => {
   $(`#soloRemeras`).click(() => {
     $("#tienda").empty();
     animarLoadingTienda();
-    crearCatalogo("Remera");
+    crearProductosEnCatalogoDOM("Remera");
     clickAgregarCarrito();
   });
 };
 
+// Muestra todas los Jeans de productos.json con categoria ("Jean")
 const clickMostrarJeans = () => {
   $(`#soloJeans`).click(() => {
     $("#tienda").empty();
     animarLoadingTienda();
-    crearCatalogo("Jean");
+    crearProductosEnCatalogoDOM("Jean");
     clickAgregarCarrito();
   });
 };
 
+// Muestra todas los Sweaters de productos.json con categoria ("Sweater")
 const clickMostrarSweaters = () => {
   $(`#soloSweaters`).click(() => {
     $("#tienda").empty();
     animarLoadingTienda();
-    crearCatalogo("Sweater");
+    crearProductosEnCatalogoDOM("Sweater");
     clickAgregarCarrito();
   });
 };
 
+// Muestra todas los Accesorios de productos.json con categoria ("Accesorio")
 const clickMostrarAccesorios = () => {
   $(`#soloAccesorios`).click(() => {
     $("#tienda").empty();
     animarLoadingTienda();
-    crearCatalogo("Accesorio");
+    crearProductosEnCatalogoDOM("Accesorio");
     clickAgregarCarrito();
   });
 };
 
-const botonesSeleccion = () => {
-  clickMostrarTodos();
-  clickMostrarRemeras();
-  clickMostrarJeans();
-  clickMostrarSweaters();
-  clickMostrarAccesorios();
-};
-
-//activa los botones de todos los id del catalogo y del modal.
+//obtiene los datos de .json y activa los botones agregar al carrito
 const clickAgregarCarrito = () => {
   $.ajax({
     method: "GET",
@@ -88,6 +100,7 @@ const clickAgregarCarrito = () => {
       let misDatos = respuesta;
 
       for (let i = 1; i <= misDatos.length; i++) {
+        //recorro lo recibido del .json
         $(`#botonComprar${i}`).click(() => {
           estaEnCarrito(i);
           mensajeAgregado();
@@ -114,13 +127,10 @@ const mensajeAgregado = () => {
 //Si el elemento con id esta en carrito , aumenta en 1 la cantidad y cambia la etiqueta cantidad , agrega al carrito
 const estaEnCarrito = (idRepetido) => {
   let producto = carrito.find((producto) => producto.id == idRepetido);
-
   cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
-
   if (producto) {
     producto.cantidad += 1;
     cantEnCarrito += 1;
-    $("#itemsCarrito").text(cantEnCarrito);
     precioTotal += producto.precio;
     actualizarLocalStorage();
   } else {
@@ -131,30 +141,20 @@ const estaEnCarrito = (idRepetido) => {
 //Agrega el producto al carrito , aumenta en 1 la cantidad de items en carrito y cambia la etiqueta del carrito
 const agregarCarrito = (idProducto) => {
   let producto = catalogo.find((producto) => producto.id == idProducto);
-
   cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
-
   carrito.push(producto);
-
   cantEnCarrito += 1;
-  $("#itemsCarrito").text(cantEnCarrito);
   precioTotal += producto.precio;
   actualizarLocalStorage();
 };
+// ------------------------------------------------------------------------------ FIN  BOTONES
 
-//actualiza el localStorage
-const actualizarLocalStorage = () => {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  localStorage.setItem("cantEnCarrito", JSON.stringify(cantEnCarrito));
-  localStorage.setItem("precioTotal", JSON.stringify(precioTotal));
-  $("#itemsCarrito").text(cantEnCarrito);
-};
-
+// ------------------------------------------------------------------------------MODALs
 //actualiza y abre el modal con la lista cada vez que se hace click
 const clickIconoCarrito = () => {
   $("#iconoCarrito").click(() => {
     limpiarListaModal();
-    crearModalCarrito();
+    crearListaCarritoDOM();
 
     if (carrito.length == 0) {
       $("#continuarCompra").prop("disabled", true);
@@ -182,7 +182,7 @@ const clickBorrarItem = (item) => {
     actualizarLocalStorage();
 
     limpiarListaModal();
-    crearModalCarrito();
+    crearListaCarritoDOM();
   });
 };
 
@@ -212,7 +212,7 @@ const clickModificarCantidad = (item) => {
 
       limpiarListaModal();
 
-      crearModalCarrito();
+      crearListaCarritoDOM();
     }
   });
 };
@@ -220,14 +220,11 @@ const clickModificarCantidad = (item) => {
 //si hay productos devuelve un alert por la suma de precios
 const clickContinuar = () => {
   $("#continuarCompra").click(() => {
-    crearModalFinalizarCompra();
-    $("#modalidadEnvio").empty();
-
-    $("#finalizarCompra").prop("disabled", true);
-
     $("#valorEnvio").html(0);
     $("#valorTotalConEnvio").html(precioTotal);
     localStorage.setItem("precioTotalConEnvio", precioTotal);
+
+    animarDatosContacto();
     cambiosEnEnviar();
     clickFinalizarCompra();
   });
@@ -235,12 +232,9 @@ const clickContinuar = () => {
 
 const cambiosEnEnviar = () => {
   $("#clickEnvio").click(() => {
-    $("#modalidadEnvio").empty();
-    datosContacto();
-    animarDatosContacto();
-
     $("#valorEnvio").html(400);
     $("#valorTotalConEnvio").html(precioTotal + 400);
+
     localStorage.setItem("precioTotalConEnvio", precioTotal + 400);
     localStorage.setItem("envio", 400);
 
@@ -248,11 +242,9 @@ const cambiosEnEnviar = () => {
   });
 
   $("#clickRetiro").click(() => {
-    datosContacto();
-    animarDatosContacto();
-
     $("#valorEnvio").html(0);
     $("#valorTotalConEnvio").html(precioTotal);
+
     localStorage.setItem("precioTotalConEnvio", precioTotal);
     localStorage.setItem("envio", 0);
 
@@ -272,14 +264,16 @@ const clickFinalizarCompra = () => {
       }
       txt += `Total segun metodo de envio: $${localStorage.getItem(
         "precioTotalConEnvio"
-      )}`;
+      )} \n `;
       console.log(txt);
       vaciarCarrito();
+      refresh();
     } else {
       alert("COMPLETE LOS DATOS");
     }
   });
 };
+// ------------------------------------------------------------------------------ FIN MODAL
 
 //click en boton vaciar carrito elimina si hay productos en la lista
 const clickVaciarCarrito = () => {
@@ -310,20 +304,41 @@ const limpiarListaModal = () => {
 
 //muestra por consola los JSON y el localStorage
 const mostrarCatalogoJSON = () => {
-  $.getJSON(URLJSON, (respuesta, estado) => {
-    if (estado == "success") {
-      let misDatos = respuesta;
-      console.log("");
-      console.log("productos.json");
-      console.log(misDatos);
-    }
+  $.getJSON(URLJSON, (respuesta) => {
+    console.log("");
+    console.log("Data en productos.json");
+    console.log(respuesta);
   });
+};
+
+const botonesSeleccion = () => {
+  clickMostrarTodos();
+  clickMostrarRemeras();
+  clickMostrarJeans();
+  clickMostrarSweaters();
+  clickMostrarAccesorios();
+};
+
+const refresh = () => {
+  console.log(`REFRESH EN 3 SEGUNDOS`);
+  setTimeout(() => {
+    console.log("3");
+  }, 900);
+  setTimeout(() => {
+    console.log("2");
+  }, 1800);
+  setTimeout(() => {
+    console.log("1");
+  }, 2700);
+  setTimeout(() => {
+    location.reload();
+  }, 3100);
 };
 
 //llama a todas las funciones
 const app = () => {
   iniciarLocalStorage();
-  crearCatalogo();
+  crearProductosEnCatalogoDOM();
   botonesSeleccion();
   clickAgregarCarrito();
   clickIconoCarrito();

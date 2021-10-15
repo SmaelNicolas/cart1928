@@ -1,5 +1,4 @@
-const crearModalFinalizarCompra = () => {
-  $("#carritoSeccion").append(`<!- MODAL FINALIZAR COMPRA-->
+$("#carritoSeccion").append(`<!- MODAL FINALIZAR COMPRA-->
         <div class="modal fade" id="modalFinalizarCompra" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -22,8 +21,15 @@ const crearModalFinalizarCompra = () => {
                         </div>
 
                         <section class="modalidadEnvio" id="modalidadEnvio">
-                        
-                    
+                            <div class="modalFinalizarCompra__enviar hide" id="datosContacto">
+                                <input class="infoEnviar" type="text" name="name" required placeholder="Nombre">
+                                <input class="infoEnviar" type="text" name="apellido" required placeholder="Appelido">
+                                <input class="infoEnviar" type="email" name="email" required placeholder="Email">
+                                <input class="infoEnviar" type="text" name="telefono" required placeholder="Telefono">
+                                <input class="infoEnviar" type="text" name="direccion" required placeholder="Direccion">
+                                <input class="infoEnviar" type="text" name="ciudad" required placeholder="Ciudad">
+                                <input class="infoEnviar" id="cp" type="text" name="cp" required placeholder="Codigo Postal">
+                            </div>                  
                         </section>
 
                         <h5 class="modalFinalizarCompra__titulo">Medio de Pago</h5>
@@ -54,25 +60,8 @@ const crearModalFinalizarCompra = () => {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark " data-dismiss="modal" id="cancelarCompra">CANCELAR</button>
-                        <button type="button" class="btn btn__estilo" data-dismiss="modal" id="finalizarCompra" href="#" data-target="#modalFinalizarCompra" type="submit">fINALIZAR COMPRA</button>
+                        <button type="button" class="btn btn__estilo" data-dismiss="modal" id="finalizarCompra" disabled href="#" data-target="#modalFinalizarCompra" type="submit">fINALIZAR COMPRA</button>
                     </div>
                 </div>
             </div>
         </div>`);
-};
-
-const datosContacto = () => {
-  $("#modalidadEnvio").empty();
-
-  $("#modalidadEnvio").append(` 
-  
-    <div class="modalFinalizarCompra__enviar" id="datosContacto">
-        <input class="infoEnviar" type="text" name="name" required placeholder="Nombre">
-        <input class="infoEnviar" type="text" name="apellido" required placeholder="Appelido">
-        <input class="infoEnviar" type="email" name="email" required placeholder="Email">
-        <input class="infoEnviar" type="text" name="telefono" required placeholder="Telefono">
-        <input class="infoEnviar" type="text" name="direccion" required placeholder="Direccion">
-        <input class="infoEnviar" type="text" name="ciudad" required placeholder="Ciudad">
-        <input class="infoEnviar" id="cp" type="text" name="cp" required placeholder="Codigo Postal">
-    </div>`);
-};

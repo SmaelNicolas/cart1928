@@ -1,30 +1,12 @@
-$("#main").append(` <h1 class="main__titulo" id="tituloTienda">SHOP</h1>
-
-            <div class="main__botones">
-                      <button class="btn main__botones__click" id="botonTodos">Todos</button>
-                      <button class="btn main__botones__click" id="soloRemeras">Remeras</button>
-                      <button class="btn main__botones__click" id="soloJeans">Jeans</button>
-                      <button class="btn main__botones__click" id="soloSweaters">Sweaters</button>
-                      <button class="btn main__botones__click" id="soloAccesorios">accesorios</button>
-            </div>
-
-            <div class="main__productos" id="tienda">
-            
-           
-
-
-`);
-
-//Crea todas las "tarjetas" de los productos agregandolos un DIV y luego el div ,como hijo al id="tienda"
-const crearCatalogo = (categoria) => {
-  $("#tienda").append(``);
-
+// Crea cada producto de productos.json con su imagen, titulo , descripcion y precio.
+const crearProductosEnCatalogoDOM = (categoria) => {
   $.ajax({
     method: "GET",
     url: URLJSON,
     success: (respuesta) => {
       let misDatos = respuesta;
       for (const item of misDatos) {
+        //CREA TODOS LOS PRODUCTOS
         if (categoria == undefined) {
           $("#tienda").append(` 
           <!-- Button trigger modal ZOOM -->
@@ -70,6 +52,7 @@ const crearCatalogo = (categoria) => {
           </div>
           `);
         } else {
+          //CREA SOLO LOS PRODUCTOS QUE COICINDAN CON LA CATEGORIA DEL BOTON
           if (item.categoria == categoria) {
             $("#tienda").append(` 
           <!-- Button trigger modal ZOOM -->

@@ -1,9 +1,6 @@
-$("#carritoSeccion").append(`   <section class="carrito" id="carrito">
-            <span class="carrito__itemstotal" id="itemsCarrito"></span>
-            <a class="carrito__icon" href="#" data-toggle="modal" data-target="#modalCarrito"><i
-                    class="fas fa-shopping-cart carrito__imagen" id="iconoCarrito"></i></a>
-        </section>
-        <!-- MODAL CARRITO -->
+$("#carritoSeccion").append(`
+
+                                                    <!-- MODAL CARRITO -->
         <div class="modal fade" id="modalCarrito" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -24,9 +21,4 @@ $("#carritoSeccion").append(`   <section class="carrito" id="carrito">
                     </div>
                 </div>
             </div>
-        </div>
-        
-        
-        
-        
-        `);
+        </div>`);

@@ -1,5 +1,5 @@
 //crea dentro del modal del carrito: la lista de productos , el boton eliminar, el precio total de la suma y los botones de vaciar y finalizar
-const crearModalCarrito = () => {
+const crearListaCarritoDOM = () => {
   for (const item of carrito) {
     $("#listaDelCarrito").append(
       `<div class="itemModal">
