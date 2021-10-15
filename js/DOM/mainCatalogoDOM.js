@@ -9,7 +9,6 @@ $("#main").append(` <h1 class="main__titulo" id="tituloTienda">SHOP</h1>
             </div>
 
             <div class="main__productos" id="tienda">
-            <div class="loadingTienda" id="loadingTienda"></div>
             
            
 
@@ -18,6 +17,8 @@ $("#main").append(` <h1 class="main__titulo" id="tituloTienda">SHOP</h1>
 
 //Crea todas las "tarjetas" de los productos agregandolos un DIV y luego el div ,como hijo al id="tienda"
 const crearCatalogo = (categoria) => {
+  $("#tienda").append(``);
+
   $.ajax({
     method: "GET",
     url: URLJSON,
@@ -37,7 +38,7 @@ const crearCatalogo = (categoria) => {
 
           <p class="main__productos__card__precio">$ ${item.precio}</p>
 
-          <button class="main__productos__card__button" type="button" id="botonComprar${item.id}">agregar  <i
+          <button class="main__productos__card__button btn__estilo" type="button" id="botonComprar${item.id}">agregar  <i
                     class="fas fa-shopping-cart carrito__imagen" id="iconoCarrito"></i></button>
           
           </div>
@@ -61,7 +62,7 @@ const crearCatalogo = (categoria) => {
 
                 <div class="modal-footer"> 
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-                <button type="button" class="btn btn-dark" id="botonComprarModal${item.id}">agregar  <i
+                <button type="button" class="btn btn-dark btn__estilo" id="botonComprarModal${item.id}">agregar  <i
                     class="fas fa-shopping-cart carrito__imagen" id="iconoCarrito"></i></button>
                 </div>
               </div>

@@ -7,17 +7,17 @@
   background-repeat: no-repeat;
   background-size: 50%;
   position: absolute;
-  background-color: transparent;
+  background-color: white;
 
   &Tienda {
     position: absolute;
     width: 100%;
-    height: 100%;
-    background-image: url(/img/loading.gif);
+    height: 60%;
+    background-image: url(../.././img/loading.gif);
     background-repeat: no-repeat;
-    background-size: auto;
-    background-position: top;
+    background-size: 35%;
+    background-position: bottom;
     background-color: white;
-    display: none;
+    bottom: 0px;
   }
 }

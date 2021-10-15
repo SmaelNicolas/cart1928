@@ -3,6 +3,7 @@ let catalogo = []; //array para mostrar lso productos en la tienda
 let carrito; // variable para guardar carrito en localStorage
 let cantEnCarrito; //variable para guardar cant en el carrito en localStorage
 let precioTotal; //variable para guardar el total de los productos
+let txt;
 
 const URLJSON = "./data/productos.json";
 
@@ -28,49 +29,45 @@ const iniciarLocalStorage = () => {
 const clickMostrarTodos = () => {
   $(`#botonTodos`).click(() => {
     $("#tienda").empty();
+    animarLoadingTienda();
     crearCatalogo();
     clickAgregarCarrito();
-
-    // animarLoadingTienda();
   });
 };
 
 const clickMostrarRemeras = () => {
   $(`#soloRemeras`).click(() => {
     $("#tienda").empty();
+    animarLoadingTienda();
     crearCatalogo("Remera");
     clickAgregarCarrito();
-
-    // animarLoadingTienda();
   });
 };
 
 const clickMostrarJeans = () => {
   $(`#soloJeans`).click(() => {
     $("#tienda").empty();
+    animarLoadingTienda();
     crearCatalogo("Jean");
     clickAgregarCarrito();
-
-    // animarLoadingTienda();
   });
 };
 
 const clickMostrarSweaters = () => {
   $(`#soloSweaters`).click(() => {
     $("#tienda").empty();
+    animarLoadingTienda();
     crearCatalogo("Sweater");
     clickAgregarCarrito();
-
-    // animarLoadingTienda();
   });
 };
 
 const clickMostrarAccesorios = () => {
   $(`#soloAccesorios`).click(() => {
     $("#tienda").empty();
+    animarLoadingTienda();
     crearCatalogo("Accesorio");
     clickAgregarCarrito();
-    // animarLoadingTienda();
   });
 };
 
@@ -109,7 +106,7 @@ const clickAgregarCarrito = () => {
 const mensajeAgregado = () => {
   $("#contenedorMensajeAgregado").append(
     `<div class="confirmacion">
-        <p>agregado al carrito<p>
+        <p>producto agregado al carrito<p>
     </div>`
   );
 };
@@ -232,6 +229,7 @@ const clickContinuar = () => {
     $("#valorTotalConEnvio").html(precioTotal);
     localStorage.setItem("precioTotalConEnvio", precioTotal);
     cambiosEnEnviar();
+    clickFinalizarCompra();
   });
 };
 
@@ -240,7 +238,6 @@ const cambiosEnEnviar = () => {
     $("#modalidadEnvio").empty();
     datosContacto();
     animarDatosContacto();
-    clickFinalizarCompra();
 
     $("#valorEnvio").html(400);
     $("#valorTotalConEnvio").html(precioTotal + 400);
@@ -253,7 +250,6 @@ const cambiosEnEnviar = () => {
   $("#clickRetiro").click(() => {
     datosContacto();
     animarDatosContacto();
-    clickFinalizarCompra();
 
     $("#valorEnvio").html(0);
     $("#valorTotalConEnvio").html(precioTotal);
@@ -265,9 +261,8 @@ const cambiosEnEnviar = () => {
 };
 
 const clickFinalizarCompra = () => {
-  console.log("HOLA");
   $("#finalizarCompra").click(() => {
-    let txt = "";
+    txt = "";
 
     if ($(".infoEnviar").val() != "") {
       for (const i of carrito) {
@@ -275,11 +270,10 @@ const clickFinalizarCompra = () => {
           i.precio * i.cantidad
         } \n`;
       }
-
-      txt += `Total Con Envio: $${localStorage.getItem("precioTotalConEnvio")}`;
-
+      txt += `Total segun metodo de envio: $${localStorage.getItem(
+        "precioTotalConEnvio"
+      )}`;
       console.log(txt);
-
       vaciarCarrito();
     } else {
       alert("COMPLETE LOS DATOS");
@@ -313,9 +307,6 @@ const vaciarCarrito = () => {
 const limpiarListaModal = () => {
   $("#listaDelCarrito").empty();
 };
-const limpiarListaModalContinuar = () => {
-  $("#modalFinalizarCompra").empty();
-};
 
 //muestra por consola los JSON y el localStorage
 const mostrarCatalogoJSON = () => {
@@ -332,7 +323,6 @@ const mostrarCatalogoJSON = () => {
 //llama a todas las funciones
 const app = () => {
   iniciarLocalStorage();
-  // inicializarProductos();
   crearCatalogo();
   botonesSeleccion();
   clickAgregarCarrito();
