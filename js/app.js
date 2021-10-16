@@ -84,7 +84,6 @@ const clickMostrarJeans = () => {
 const clickMostrarSweaters = () => {
   $(`#soloSweaters`).click(() => {
     $(".main__botones__click").prop("disabled", false);
-
     $(`#soloSweaters`).prop("disabled", true);
 
     $("#tienda").empty();
@@ -203,7 +202,7 @@ const clickBorrarItem = (item) => {
       ? (item.cantidad -= 1)
       : item.cantidad == 1
       ? (carrito = carrito.filter((prodEliminar) => prodEliminar.id != item.id))
-      : null;
+      : undefined;
 
     cantEnCarrito -= 1;
     precioTotal -= item.precio;
