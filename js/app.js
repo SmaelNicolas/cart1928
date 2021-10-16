@@ -305,10 +305,10 @@ const clickFinalizarCompra = () => {
       vaciarCarrito();
       // refresh();
     } else {
-      $("#finalizarCompra").prop("disabled", true);
       alert("COMPLETE LOS DATOS");
     }
   });
+  $("#finalizarCompra").prop("disabled", true);
 };
 // ------------------------------------------------------------------------------ FIN SEGUNDO MODAL DATOS DE ENVIO
 
