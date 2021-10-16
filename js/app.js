@@ -303,8 +303,10 @@ const clickFinalizarCompra = () => {
       )} \n `;
       console.log(txt);
       vaciarCarrito();
-      refresh();
+      // refresh();
     } else {
+      $("#finalizarCompra").prop("disabled", true);
+
       alert("COMPLETE LOS DATOS");
     }
   });
