@@ -15,13 +15,11 @@ const animarTitulo = () => {
 
 const animarTienda = () => {
   $("#tienda").hide();
-
   $("#tienda").fadeIn(3000);
 };
 
 const animarLoadingTienda = () => {
   $("#loadingTienda").show();
-
   $("#loadingTienda").fadeIn(1);
   $("#loadingTienda").fadeOut(1000);
 };

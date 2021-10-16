@@ -44,8 +44,8 @@ const actualizarLocalStorage = () => {
 // Muestra todos los productos de productos.json (undefined)
 const clickMostrarTodos = () => {
   $(`#botonTodos`).click(() => {
-    $(".main__botones__click").prop("disabled", false);
-    $(`#botonTodos`).prop("disabled", true);
+    $(".main__botones__click").prop("disabled", false); //habilita todos los botones
+    $(`#botonTodos`).prop("disabled", true); //se desabilita el del click
 
     $("#tienda").empty(); //Elimina el contenido de la seccion de tienda
     animarLoadingTienda(); //Agrega animacion de "Loading..."
@@ -168,13 +168,14 @@ const agregarCarrito = (idProducto) => {
 
 // ------------------------------------------------------------------------------MODAL LISTA CARRITO
 
-//actualiza y abre el modal con la lista cada vez que se hace click
+//actualiza y abre el la lista de productos del carrito
 const clickIconoCarrito = () => {
   $("#iconoCarrito").click(() => {
     actualizarListaCarrito();
   });
 };
 
+//limpia la lista del carrito , la vuelve a crear y chequea los botones vaciar  y continuar
 const actualizarListaCarrito = () => {
   actualizarLocalStorage();
   $("#listaDelCarrito").empty();
@@ -193,7 +194,7 @@ const activarBotonesVaciarContinuar = () => {
   }
 };
 
-//si hay mas de 1 item del mismo producto , resta 1 en cantidad si hay solo 1 item lo elimina ,  despues  actualiza la lista y la cantidad en carrito.
+//si hay mas de 1 item del mismo producto , resta 1 en cantidad si hay solo 1 item lo elimina ,  despues  actualiza la lista del carrito
 const clickBorrarItem = (item) => {
   cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
 
@@ -211,6 +212,8 @@ const clickBorrarItem = (item) => {
   });
 };
 
+// 2 variables nuevo y anterior para cambiar la cantiddad
+// si hay cambios en la etiqueta de cantidad , chequea que sea un numero valido y cambia la cantidad del producto en el carrito, despues actualiza la lista
 const clickModificarCantidad = (item) => {
   cantEnCarrito = JSON.parse(localStorage.getItem("cantEnCarrito"));
   let cantAnterior = parseInt($(`#inputCantidad${item.id}`).val());
@@ -262,6 +265,7 @@ const clickContinuar = () => {
   });
 };
 
+//depende q tipo se elija, se actualizan los preciostotales y de envio y se activa boton continuar
 const cambiosEnEnviar = () => {
   $("#clickRetiro").click(() => {
     $("#valorEnvio").html(0);
@@ -284,6 +288,7 @@ const cambiosEnEnviar = () => {
   });
 };
 
+//si todos los campos estan completos muestra por consola los productos "comprados" , vacia el carrito y recarga la pagina
 const clickFinalizarCompra = () => {
   $("#finalizarCompra").click(() => {
     txt = "";
@@ -307,7 +312,7 @@ const clickFinalizarCompra = () => {
 };
 // ------------------------------------------------------------------------------ FIN SEGUNDO MODAL DATOS DE ENVIO
 
-//elimina los productos en carrito
+//elimina los productos en carrito, limpia la lista del carrito , vacia el LS  y pone todo a 0
 const vaciarCarrito = () => {
   carrito = [];
   precioTotal = 0;
@@ -332,6 +337,7 @@ const mostrarProductosJSON = () => {
   });
 };
 
+//llamada a todos los clicks
 const botones = () => {
   clickMostrarTodos();
   clickMostrarRemeras();
