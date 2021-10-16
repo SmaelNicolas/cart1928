@@ -17,7 +17,7 @@ const crearListaCarritoDOM = () => {
                   
             </div>
             <div class="itemModal__info__precio" id="infoPrecio">
-              <p>Precio</p>
+              <p>precio</p>
               <div>$${item.precio * item.cantidad}</div>
             </div>
         </div>
