@@ -306,7 +306,6 @@ const clickFinalizarCompra = () => {
       // refresh();
     } else {
       $("#finalizarCompra").prop("disabled", true);
-
       alert("COMPLETE LOS DATOS");
     }
   });
