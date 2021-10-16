@@ -14,22 +14,22 @@ $("#header").append(`
 
             <li class="header__ul__li">
                 <a class=" header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/">Inicio</a>
+                    href="https://1928showroom.com.ar/">inicio</a>
             </li>
 
             <li class="header__ul__li">
                 <a class=" header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/remeras.html">Remeras</a>
+                    href="https://1928showroom.com.ar/html/remeras.html">remeras</a>
             </li>
 
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/jeans.html">Jeans</a>
+                    href="https://1928showroom.com.ar/html/jeans.html">jeans</a>
             </li>
 
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/sweaters.html">Sweaters</a>
+                    href="https://1928showroom.com.ar/html/sweaters.html">sweaters</a>
             </li>
 
             <li class="header__ul__li">
@@ -38,7 +38,7 @@ $("#header").append(`
             </li>
 
             <li class="header__ul__li">
-                <a class="header__ul__li__a header__ul__li__a__text--color" href="#footer">Contacto</a>
+                <a class="header__ul__li__a header__ul__li__a__text--color" href="#footer">contacto</a>
             </li>
 
         </ul>

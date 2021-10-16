@@ -6,7 +6,7 @@ $("#carritoSeccion").append(`
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalCenterLongTitle">articulos Seleccionados
+                        <h5 class="modal-title" id="modalCenterLongTitle">articulos seleccionados
                         </h5>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
 
@@ -17,7 +17,7 @@ $("#carritoSeccion").append(`
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark " data-dismiss="modal" disabled id="vaciarCarrito">Vaciar
                             Carrito</button>
-                        <button type="button" class="btn btn__estilo" data-dismiss="modal" id="continuarCompra" disabled data-toggle="modal" data-target="#modalFinalizarCompra">CONTINUAR</button>
+                        <button type="button" class="btn btn__estilo" data-dismiss="modal" id="continuarCompra" disabled data-toggle="modal" data-target="#modalFinalizarCompra">continuar</button>
                     </div>
                 </div>
             </div>

@@ -1,66 +1,123 @@
 [
   {
     "id": 1,
-    "categoria": "Remera",
-    "descripcion": "Talle XXL manga corta estampada color azul",
-    "precio": 1240,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "remera",
+    "descripcion": "talle XXL manga corta bordada color mostaza",
+    "precio": 1990,
+    "imagen": "https://i.ibb.co/L8hDQWf/remera1.jpg",
     "cantidad": 1
   },
   {
     "id": 2,
-    "categoria": "Jean",
-    "descripcion": "Talle 50 tipo Chupin color claro",
-    "precio": 3600,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "jean",
+    "descripcion": "talle 46 tipo Chupin color claro con roturas",
+    "precio": 4300,
+    "imagen": "https://i.ibb.co/jWBgb4W/jean1.jpg",
     "cantidad": 1
   },
   {
     "id": 3,
-    "categoria": "Sweater",
-    "descripcion": "Talle XL de hilo color negro",
-    "precio": 2700,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "sweater",
+    "descripcion": "talle XL de lana color negro/bordo/gris",
+    "precio": 3900,
+    "imagen": "https://i.ibb.co/FmW6B4g/sweater1.jpg",
     "cantidad": 1
   },
   {
     "id": 4,
-    "categoria": "Jean",
-    "descripcion": "Talle 52 recto color oscuro",
-    "precio": 3600,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "accesorio",
+    "descripcion": "cinto negro de tachas - talle XL",
+    "precio": 700,
+    "imagen": "https://i.ibb.co/PcyV2bz/acc1.jpg",
     "cantidad": 1
   },
   {
     "id": 5,
-    "categoria": "Sweater",
-    "descripcion": "Talle XL de lanilla color negro",
-    "precio": 2700,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "jean",
+    "descripcion": "talle 48 chupin color clasico",
+    "precio": 4300,
+    "imagen": "https://i.ibb.co/V2mXj70/jean2.jpg",
     "cantidad": 1
   },
   {
     "id": 6,
-    "categoria": "Accesorio",
-    "descripcion": "Anillo de Oro grabado a pedido",
-    "precio": 4300,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "remera",
+    "descripcion": "talle XXL manga corta estampada color blanco",
+    "precio": 1240,
+    "imagen": "https://i.ibb.co/x8cWnm0/remera2.jpg",
     "cantidad": 1
   },
   {
     "id": 7,
-    "categoria": "Accesorio",
-    "descripcion": "Cadenita de Acero Quirurgico con medalla",
-    "precio": 1250,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "sweater",
+    "descripcion": "talle XL de bremer color negro/blanco/militar",
+    "precio": 3600,
+    "imagen": "https://i.ibb.co/4YkTtkJ/sweater2.jpg",
     "cantidad": 1
   },
   {
     "id": 8,
-    "categoria": "Accesorio",
-    "descripcion": "Pulsera de plata con inicial",
-    "precio": 1500,
-    "imagen": "https://i.ibb.co/h8n8x59/p.jpg",
+    "categoria": "jean",
+    "descripcion": "talle 50 MUM color claro con roturas",
+    "precio": 4300,
+    "imagen": "https://i.ibb.co/x5Cfpxw/jean3.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 9,
+    "categoria": "accesorio",
+    "descripcion": "pulsera con dije ♥",
+    "precio": 450,
+    "imagen": "https://i.ibb.co/WWh9j4S/acc2.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 10,
+    "categoria": "accesorio",
+    "descripcion": "cadenita con dije de acero quirurgico ",
+    "precio": 750,
+    "imagen": "https://i.ibb.co/54bNL9J/acc3.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 11,
+    "categoria": "sweater",
+    "descripcion": "talle XXL de hilo color negro",
+    "precio": 2700,
+    "imagen": "https://i.ibb.co/YfwZRm9/sweater3.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 12,
+    "categoria": "jean",
+    "descripcion": " short talle 48/50/52 color oscuro",
+    "precio": 3500,
+    "imagen": "https://i.ibb.co/h26Cj3C/jean4.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 13,
+    "categoria": "remera",
+    "descripcion": "talle XXL manga corta con bolados color verde militar",
+    "precio": 1850,
+    "imagen": "https://i.ibb.co/3Cs1yGb/remera3.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 14,
+    "categoria": "accesorio",
+    "descripcion": "cadenita de acero quirurgico con medalla",
+    "precio": 1250,
+    "imagen": "https://i.ibb.co/fxdHDWP/acc4.jpg",
+    "cantidad": 1
+  },
+
+  {
+    "id": 15,
+    "categoria": "remera",
+    "descripcion": "talle XXL manga corta con estampa color negro",
+    "precio": 2100,
+    "imagen": "https://i.ibb.co/FmrH91z/remera4.jpg",
     "cantidad": 1
   }
 ]

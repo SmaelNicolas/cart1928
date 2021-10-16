@@ -3,14 +3,14 @@ $("#footer").append(`
         <section class="footer__datos">
 
             <strong class="footer__datos__texto footer__datos--size">
-                Horarios
+                horarios
             </strong>
             <p class="footer__datos__texto">
-                Lunes a Viernes : 10:00 - 13:00 | 16:00 - 19:00
+                lunes a viernes : 10:00 - 13:00 | 16:00 - 19:00
 
             </p>
             <p class="footer__datos__texto">
-                Sabados: 10:00 - 14:00
+                sabados: 10:00 - 14:00
             </p>
 
             <strong class="footer__datos__texto footer__datos--size">

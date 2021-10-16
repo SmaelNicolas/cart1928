@@ -44,6 +44,9 @@ const actualizarLocalStorage = () => {
 // Muestra todos los productos de productos.json (undefined)
 const clickMostrarTodos = () => {
   $(`#botonTodos`).click(() => {
+    $(".main__botones__click").prop("disabled", false);
+    $(`#botonTodos`).prop("disabled", true);
+
     $("#tienda").empty(); //Elimina el contenido de la seccion de tienda
     animarLoadingTienda(); //Agrega animacion de "Loading..."
     crearProductosEnCatalogoDOM(); //crea el catalogo de productos que coincidan con el parametro
@@ -54,9 +57,12 @@ const clickMostrarTodos = () => {
 // Muestra todas las Remeras de productos.json con categoria ("Remera")
 const clickMostrarRemeras = () => {
   $(`#soloRemeras`).click(() => {
+    $(".main__botones__click").prop("disabled", false);
+    $(`#soloRemeras`).prop("disabled", true);
+
     $("#tienda").empty();
     animarLoadingTienda();
-    crearProductosEnCatalogoDOM("Remera");
+    crearProductosEnCatalogoDOM("remera");
     clickAgregarCarrito();
   });
 };
@@ -64,9 +70,12 @@ const clickMostrarRemeras = () => {
 // Muestra todas los Jeans de productos.json con categoria ("Jean")
 const clickMostrarJeans = () => {
   $(`#soloJeans`).click(() => {
+    $(".main__botones__click").prop("disabled", false);
+    $(`#soloJeans`).prop("disabled", true);
+
     $("#tienda").empty();
     animarLoadingTienda();
-    crearProductosEnCatalogoDOM("Jean");
+    crearProductosEnCatalogoDOM("jean");
     clickAgregarCarrito();
   });
 };
@@ -74,19 +83,28 @@ const clickMostrarJeans = () => {
 // Muestra todas los Sweaters de productos.json con categoria ("Sweater")
 const clickMostrarSweaters = () => {
   $(`#soloSweaters`).click(() => {
+    $(".main__botones__click").prop("disabled", false);
+
+    $(`#soloSweaters`).prop("disabled", true);
+
     $("#tienda").empty();
     animarLoadingTienda();
-    crearProductosEnCatalogoDOM("Sweater");
+    crearProductosEnCatalogoDOM("sweater");
     clickAgregarCarrito();
+    $(`.main__botones__click`).prop("disable", false);
   });
 };
 
 // Muestra todas los Accesorios de productos.json con categoria ("Accesorio")
 const clickMostrarAccesorios = () => {
+  $("#yourElesoloAccesoriosment").attr("title", "mostrar todos");
   $(`#soloAccesorios`).click(() => {
+    $(".main__botones__click").prop("disabled", false);
+    $(`#soloAccesorios`).prop("disabled", true);
+
     $("#tienda").empty();
     animarLoadingTienda();
-    crearProductosEnCatalogoDOM("Accesorio");
+    crearProductosEnCatalogoDOM("accesorio");
     clickAgregarCarrito();
   });
 };
@@ -315,7 +333,6 @@ const mostrarProductosJSON = () => {
 };
 
 const botones = () => {
-  console.log("BOTONES CARGADOS");
   clickMostrarTodos();
   clickMostrarRemeras();
   clickMostrarJeans();

@@ -35,7 +35,7 @@ const crearListaCarritoDOM = () => {
 
   $("#listaDelCarrito").append(
     `<div class="modal__total">
-      Total : $
+      total : $
       <span class="modal__total__valor" id="valorTotal">
       ${precioTotal}
       </span>
