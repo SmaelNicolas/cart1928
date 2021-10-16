@@ -1,4 +1,6 @@
-$("#carritoSeccion").append(`<!- MODAL FINALIZAR COMPRA-->
+$("#carritoSeccion").append(`
+                                        <!- MODAL FINALIZAR COMPRA-->
+                                        
         <div class="modal fade" id="modalFinalizarCompra" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

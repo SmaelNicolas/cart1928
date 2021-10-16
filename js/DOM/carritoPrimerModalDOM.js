@@ -15,7 +15,7 @@ $("#carritoSeccion").append(`
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark " data-dismiss="modal" id="vaciarCarrito">Vaciar
+                        <button type="button" class="btn btn-dark " data-dismiss="modal" disabled id="vaciarCarrito">Vaciar
                             Carrito</button>
                         <button type="button" class="btn btn__estilo" data-dismiss="modal" id="continuarCompra" disabled data-toggle="modal" data-target="#modalFinalizarCompra">CONTINUAR</button>
                     </div>

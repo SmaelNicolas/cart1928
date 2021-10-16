@@ -24,9 +24,9 @@ const crearListaCarritoDOM = () => {
         <button class="itemModal__eliminar" id="botonEliminar${
           item.id
         }"><i class="far fa-trash-alt"></i></button>
-      </div>
-`
+      </div>`
     );
+
     $(`#inputCantidad${item.id}`).val(`${item.cantidad}`);
 
     clickModificarCantidad(item);

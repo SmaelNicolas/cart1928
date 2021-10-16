@@ -4,8 +4,7 @@ const crearProductosEnCatalogoDOM = (categoria) => {
     method: "GET",
     url: URLJSON,
     success: (respuesta) => {
-      let misDatos = respuesta;
-      for (const item of misDatos) {
+      for (const item of respuesta) {
         //CREA TODOS LOS PRODUCTOS
         if (categoria == undefined) {
           $("#tienda").append(` 
