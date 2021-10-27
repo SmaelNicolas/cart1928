@@ -260,6 +260,8 @@ const clickContinuar = () => {
 
     animarDatosContacto();
     cambiosEnEnviar();
+
+    $("#finalizarCompra").prop("disabled", true);
   });
 };
 
@@ -302,12 +304,10 @@ const clickFinalizarCompra = () => {
       )} \n `;
       console.log(txt);
       vaciarCarrito();
-      // refresh();
     } else {
       alert("COMPLETE LOS DATOS");
     }
   });
-  $("#finalizarCompra").prop("disabled", true);
 };
 // ------------------------------------------------------------------------------ FIN SEGUNDO MODAL DATOS DE ENVIO
 
@@ -331,7 +331,7 @@ const vaciarCarrito = () => {
 const mostrarProductosJSON = () => {
   $.getJSON(URLJSON, (respuesta) => {
     console.log("");
-    console.log("Data en productos.json");
+    console.log("Productos del Catalogo");
     console.log(respuesta);
   });
 };
@@ -348,23 +348,6 @@ const botones = () => {
   clickVaciarCarrito();
   clickContinuar();
   clickFinalizarCompra();
-};
-
-//refresh de la pagina en x tiempo
-const refresh = () => {
-  console.log(`REFRESH EN 3 SEGUNDOS`);
-  setTimeout(() => {
-    console.log("3");
-  }, 900);
-  setTimeout(() => {
-    console.log("2");
-  }, 1800);
-  setTimeout(() => {
-    console.log("1");
-  }, 2700);
-  setTimeout(() => {
-    location.reload();
-  }, 3100);
 };
 
 //llama a todas las funciones
