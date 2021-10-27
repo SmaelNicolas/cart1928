@@ -82,7 +82,7 @@ const crearProductosEnCatalogoDOM = (categoria) => {
                 </div>
 
                 <div class="modal-body">
-                  <img class="main__productos__card__image__modal" src="https://i.ibb.co/h8n8x59/p.jpg" alt="">
+                  <img class="main__productos__card__image__modal" src="${item.imagen}" alt="">
                   <p class="main__productos__card__title">${item.categoria} ${item.descripcion} </p>
                   <p class="main__productos__card__precio">$ ${item.precio}</p>
                 </div>
