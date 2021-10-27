@@ -260,7 +260,6 @@ const clickContinuar = () => {
 
     animarDatosContacto();
     cambiosEnEnviar();
-    clickFinalizarCompra();
   });
 };
 
@@ -348,6 +347,7 @@ const botones = () => {
   clickIconoCarrito();
   clickVaciarCarrito();
   clickContinuar();
+  clickFinalizarCompra();
 };
 
 //refresh de la pagina en x tiempo
