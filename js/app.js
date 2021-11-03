@@ -327,15 +327,6 @@ const vaciarCarrito = () => {
   $("#listaDelCarrito").empty();
 };
 
-//muestra por consola .JSON
-const mostrarProductosJSON = () => {
-  $.getJSON(URLJSON, (respuesta) => {
-    console.log("");
-    console.log("Productos del Catalogo");
-    console.log(respuesta);
-  });
-};
-
 //llamada a todos los clicks
 const botones = () => {
   clickMostrarTodos();
@@ -355,7 +346,6 @@ const app = () => {
   iniciarLocalStorage();
   crearProductosEnCatalogoDOM();
   botones();
-  mostrarProductosJSON();
 };
 
 $(document).ready(function () {
