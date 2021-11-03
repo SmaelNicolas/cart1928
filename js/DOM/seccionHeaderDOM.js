@@ -14,27 +14,27 @@ $("#header").append(`
 
             <li class="header__ul__li">
                 <a class=" header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/">inicio</a>
+                    href="#">inicio</a>
             </li>
 
             <li class="header__ul__li">
                 <a class=" header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/remeras.html">remeras</a>
+                    href="#">remeras</a>
             </li>
 
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/jeans.html">jeans</a>
+                    href="#">jeans</a>
             </li>
 
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/sweaters.html">sweaters</a>
+                    href="#">sweaters</a>
             </li>
 
             <li class="header__ul__li">
                 <a class="header__ul__li__a header__ul__li__a__text--color"
-                    href="https://1928showroom.com.ar/html/accesorios.html">accesorios</a>
+                    href="#">accesorios</a>
             </li>
 
             <li class="header__ul__li">
@@ -52,25 +52,25 @@ $("#header").append(`
             </li>
 
             <li class="header__ul__responsive__li">
-                <a class="header__ul__responsive__li__a" href="./html/remeras.html"><img
+                <a class="header__ul__responsive__li__a" href="#"><img
                         class="header__ul__responsive__li__a__img" src="https://i.ibb.co/b3j1mDy/iconremera.png"
                         alt="Icono de la seccion Remeras"></a>
             </li>
 
             <li class="header__ul__responsive__li">
-                <a class="header__ul__responsive__li__a" href="./html/jeans.html"><img
+                <a class="header__ul__responsive__li__a" href="#"><img
                         class="header__ul__responsive__li__a__img" src="https://i.ibb.co/y01NXcS/iconjean.png"
                         alt="Icono de la seccion Jeans"></a>
             </li>
 
             <li class="header__ul__responsive__li">
-                <a class="header__ul__responsive__li__a" href="./html/sweaters.html"><img
+                <a class="header__ul__responsive__li__a" href="#"><img
                         class="header__ul__responsive__li__a__img" src="https://i.ibb.co/vDjXbST/iconsweater.png"
                         alt="Icono de la seccion Sweaters"></a>
             </li>
 
             <li class="header__ul__responsive__li">
-                <a class="header__ul__responsive__li__a" href="./html/accesorios.html"><img
+                <a class="header__ul__responsive__li__a" href="#"><img
                         class="header__ul__responsive__li__a__img" src="https://i.ibb.co/zPxrJ8G/iconaccesorios.png"
                         alt="Icono de la seccion Accesorios"></a>
             </li>
